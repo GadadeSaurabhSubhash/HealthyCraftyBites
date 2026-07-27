@@ -1,0 +1,8 @@
+.AdminLogin{
+    background-image: url("F:\HealthyCraftyBites\HealthyCraftyBites_UI\src\services\authentication_service\authentication_service_images\admin_login_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+}

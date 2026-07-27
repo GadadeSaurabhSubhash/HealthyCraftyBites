@@ -1,0 +1,39 @@
+.Navbar{
+    background-color: rgba(82, 0, 110, 0.65);
+    border-radius: 20px;
+    filter: drop-shadow(3px 3px 3px black);
+}
+
+#logoutBtn{
+    width:7rem; 
+    height:7rem; 
+    filter: drop-shadow(2px 2px 3px black);
+}
+#logoutBtn:hover{
+  transform: scale(1.1); 
+}
+
+#adminManagerLogo{
+    width:5rem; 
+    height:5rem; 
+    filter: drop-shadow(2px 2px 3px black);
+    animation: spin 5s infinite ease-in-out;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+#Page-Heading{
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: #EBECFF;
+    text-shadow: 2px 3px 3px #000000;
+}

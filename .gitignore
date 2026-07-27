@@ -1,0 +1,24 @@
+# Eclipse
+.metadata/
+.project
+.classpath
+.settings/
+
+# Java
+target/
+*.class
+*.log
+
+# React
+node_modules/
+build/
+dist/
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+
+# Environment
+.env

@@ -1,0 +1,15 @@
+admin-Manager-Deccan
+Admin@Manager101
+$argon2id$v=19$m=16384,t=2,p=1$bj2/RXbPTjezkC/OJumlEA$uUtQmN4yxNKKxJv4MCg9jLNmzqQEkp6DAD5af0xtyU8
+
+admin-Manager-Katraj
+Admin@Manager102
+$argon2id$v=19$m=16384,t=2,p=1$NUdt+4i1Uur7q4SR2O2nQw$dflY0YRuh9OBLVWCdS9/8S9QVb7FErk6NEjAIdSmhdw
+
+admin-CC-Deccan
+Admin@CC101
+$argon2id$v=19$m=16384,t=2,p=1$F8xqxSNDByvHIZye9lOVEw$NQyyYDWDRl3bEqaZFPtCi22Wg8LExWWM+yCBZk/ItDA
+
+admin-CC-Katraj
+Admin@CC102
+$argon2id$v=19$m=16384,t=2,p=1$9I1nTT9fnUv1an/RUmvMyA$TVUeqmR/Wa3wYNLkJna2At7Fzk157qqIgTjltyb44Bc

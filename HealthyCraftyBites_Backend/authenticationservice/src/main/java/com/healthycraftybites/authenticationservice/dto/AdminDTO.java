@@ -5,17 +5,11 @@ public class AdminDTO {
 	private String storeId;
 	private String userName;
 	private String password;
-	
+	private String role;
+
 
 	public AdminDTO() {
 		
-	}
-	
-	public AdminDTO(String storeId, String userName, String password) {
-		super();
-		this.storeId = storeId;
-		this.userName = userName;
-		this.password = password;
 	}
 
 
@@ -41,5 +35,13 @@ public class AdminDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

@@ -12,7 +12,7 @@ public class SpringsecApplication {
 		SpringApplication.run(SpringsecApplication.class, args);
 		 PasswordEncoder encoder =
 	                Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
-		 String hash = encoder.encode("Admin@CC102");
+		 String hash = encoder.encode("Admin@M102");
 
 	        System.out.println(hash);
 

@@ -1,3 +1,4 @@
+import { loginAdmin } from "../../../api/AdminAuthenticationApi";
 import HCBLogoImg from "../authentication_service_images/healthy_crafty_bites_logo.png"
 import "../css_authentication_service/AdminLoginFormCSS.css" 
 import { useState } from "react";
@@ -83,7 +84,7 @@ function AdminLoginForm() {
     }
 
     // Validate All Fields
-    function validateCredentials() {
+    async function validateCredentials() {
 
         let isStoreIdValid = validateStoreId();
         let isUserNameValid = validateUserName();
@@ -96,7 +97,13 @@ function AdminLoginForm() {
             userName:userName,
             password:password
         }
-        console.log(credentials);
+        
+        try {
+            const response = await loginAdmin(credentials);
+            console.log(response); // temporary, just to see what backend returns
+        } catch (error) {
+            console.log(error); // temporary, we'll handle this properly next
+        }
 
     }
     }

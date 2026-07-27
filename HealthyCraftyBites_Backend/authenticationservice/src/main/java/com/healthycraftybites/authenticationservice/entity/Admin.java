@@ -19,19 +19,15 @@ public class Admin {
 	@Column(name = "password")
 	private String password;
 	
-
+	@Column(name = "role")
+	private String role;
 	
+
+
 	public Admin() {
 		
 	}
 	
-	public Admin(String storeId, String userName, String password) {
-		super();
-		this.storeId = storeId;
-		this.userName = userName;
-		this.password = password;
-	}
-
 
 
 	public String getStoreId() {
@@ -56,6 +52,14 @@ public class Admin {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 }

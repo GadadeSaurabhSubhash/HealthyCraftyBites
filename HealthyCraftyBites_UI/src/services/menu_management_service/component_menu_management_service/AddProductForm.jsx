@@ -30,6 +30,10 @@ function AddProductForm() {
     const [productCarbohydratesError, setProductCarbohydratesError] = useState("");
     const [productFiberError, setProductFiberError] = useState("");
 
+    // ----- Toast Message State -----
+    const [toastResponseMessage, setToastResponseMessage] = useState("");
+    const [showToast, setShowToast] = useState(false);
+
     // Shared regex for decimal(10,2) fields -> total 10 digits, 2 after decimal (so max 8 before decimal)
     const decimalRegex = /^\d{1,8}(\.\d{1,2})?$/;
 
@@ -252,19 +256,48 @@ function AddProductForm() {
             try 
             {
                 const response = await addProduct(product_to_add);
-                console.log(response);
+                setToastResponseMessage(response.message)
+                setShowToast(true);
+                {
+                    setTimeout(() => {
+                        setShowToast(false);
+                    }, 10000)
+                }
             } 
             catch (error) 
             {
-                if (error.response) {
+                if (error.response) 
+                {
                     // Server responded with a status outside 2xx (e.g. 400, 500)
-                    console.log("Add Product Failed - Server Error:", error.response.status, error.response.data);
-                } else if (error.request) {
+                    setToastResponseMessage(error.response.data.message);
+                    setShowToast(true);
+                    {
+                        setTimeout(() => {
+                            setShowToast(false);
+                        }, 10000)
+                    }
+                } 
+                else if (error.request) 
+                {
                     // Request was sent but no response received (network/CORS/server down)
-                    console.log("Add Product Failed - No Response:", error.request);
-                } else {
+                    setToastResponseMessage(error.request);
+                    setShowToast(true);
+                    {
+                       setTimeout(() => {
+                       setShowToast(false);
+                       }, 10000)
+                    }
+                } 
+                else 
+                {
                     // Something went wrong setting up the request
-                    console.log("Add Product Failed - Request Error:", error.message);
+                    setToastResponseMessage(error.response.data.message);
+                    setShowToast(true);
+                    {
+                       setTimeout(() => {
+                       setShowToast(false);
+                       }, 10000)
+                    }
                 }
             }
             
@@ -273,6 +306,22 @@ function AddProductForm() {
 
     return (
         <>
+            {showToast && (
+                <div className="toastBox">
+
+                    <span>
+                        {toastResponseMessage}
+                    </span>
+
+                    <button 
+                        className='btn btn-danger'
+                        onClick={() => setShowToast(false)}
+                    >
+                        X
+                    </button>    
+                </div>
+            )}
+
             <div className='AddProductForm'>
                 <form className='ProductForm p-4'>
 

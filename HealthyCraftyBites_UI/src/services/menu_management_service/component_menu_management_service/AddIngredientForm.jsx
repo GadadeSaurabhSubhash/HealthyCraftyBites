@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../css_menu_management_service/AddIngredientFormCSS.css"
-import { addIngredient } from '../../../api/AddIngredient';
+import { addIngredient } from '../../../api/AddIngredientApi';
 
 function AddIngredientForm() {
 

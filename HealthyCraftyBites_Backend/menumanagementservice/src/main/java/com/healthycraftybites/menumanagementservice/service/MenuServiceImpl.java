@@ -19,6 +19,8 @@ import com.healthycraftybites.menumanagementservice.exception.ItemNotFoundExcept
 import com.healthycraftybites.menumanagementservice.repository.MenuIngredientRepository;
 import com.healthycraftybites.menumanagementservice.repository.MenuProductRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class MenuServiceImpl implements MenuService {
 
@@ -152,6 +154,22 @@ public class MenuServiceImpl implements MenuService {
 		BeanUtils.copyProperties(objUpdatedIngredient, objUpdatedIngredientDTO);
 		
 		return objUpdatedIngredientDTO;
+	}
+
+	@Transactional
+	@Override
+	public ProductDTO deleteProduct(int targetProductId) {
+		Optional<Product> objTargetProduct = objMenuProductRepository.findById(targetProductId);
+		ProductDTO objDeletedProduct = new ProductDTO();
+		if(objTargetProduct.isPresent()) {
+			BeanUtils.copyProperties(objTargetProduct.get(),objDeletedProduct);
+			objMenuProductRepository.delete(objTargetProduct.get());
+		}
+		else {
+			throw new ItemNotFoundException("Product with Product Id: "+targetProductId+" not found in database!");
+		}
+		
+		return objDeletedProduct;
 	}
 	
 	

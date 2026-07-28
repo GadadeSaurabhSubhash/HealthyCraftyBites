@@ -1,7 +1,7 @@
 import AdminManagerHome from "./layout_pages/admin_manager/AdminManagerHome";
 import AdminLogin from "./services/authentication_service/pages_authentication_service/AdminLogin"
 import AddProductForm from "./services/menu_management_service/component_menu_management_service/AddProductForm"
-import AddIngredientForm from "./services/menu_management_service/component_menu_management_service/AddingredientForm";
+import AddIngredientForm from "./services/menu_management_service/component_menu_management_service/AddIngredientForm";
 import { Routes, Route } from "react-router-dom";
 
 

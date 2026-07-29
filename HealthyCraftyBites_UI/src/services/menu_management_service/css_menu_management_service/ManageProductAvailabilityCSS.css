@@ -94,3 +94,16 @@
 .toastBox button {
     font-size: 18px;
 }
+
+.SortOption p{
+    font-family: 'Urbanist', sans-serif;
+    color: #f3b8fc;
+    font-size: 17px;
+}
+
+.CategoryBox{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #f3b8fc !important;
+    color:black;
+    font-size: 17px;
+}

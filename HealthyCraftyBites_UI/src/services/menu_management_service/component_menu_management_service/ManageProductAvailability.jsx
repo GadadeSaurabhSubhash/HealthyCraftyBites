@@ -14,6 +14,21 @@ function ManageProductAvailability(){
     const [toastResponseMessage, setToastResponseMessage] = useState("");
     const [showToast, setShowToast] = useState(false);
 
+    // ------------- Sorted Items State ---------------------
+    const [SortedProductList, setSortedProductList] = useState([]);
+
+    function sortList(category){
+        if(category==="All")
+        {
+            setSortedProductList([...productData]);
+        }
+        else
+        {
+            setSortedProductList(
+                productData.filter(product => product.category === category)
+            );
+        }                                                                              
+    }
 
     useEffect(()=>{
         loadAllProducts();
@@ -31,6 +46,7 @@ function ManageProductAvailability(){
         {
             let response = await viewAllProducts();
             setProductData(response.data);
+            setSortedProductList(response.data);
         } 
         catch (error) 
         {
@@ -156,6 +172,7 @@ function ManageProductAvailability(){
     }
 
     
+    
     return(
         <>
             {showToast && (
@@ -174,7 +191,7 @@ function ManageProductAvailability(){
                 </div>
             )}
             
-            <div className="ManageProductAvailability p-4 d-flex justify-content-center">
+            <div className="ManageProductAvailability p-4 d-flex row justify-content-center">
                 {
                     productData.length === 0
                     ? (
@@ -194,6 +211,27 @@ function ManageProductAvailability(){
                         )
                         : (
                             <>
+                                    <div className="SortOption mb-3 p-2 d-flex justify-content-start">
+                                        <div>
+                                            <p>Sort By :</p>
+                                        </div>
+                                        <div className=" px-2">
+                                            <select className="CategoryBox"
+                                                onChange={(e)=>{
+                                                            const value = e.target.value;
+                                                            sortList(value);
+                                                        }
+                                                }
+                                            >
+                                                <option value="All">All Products</option>
+                                                <option value="Salad">Salad</option>
+                                                <option value="Sandwich">Sandwich</option>
+                                                <option value="Roll">Roll</option>
+                                                <option value="Beverage">Beverage</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <table className="ProductDataTable">
                                     <thead className="ProductDataTableHead">
                                         <tr>
@@ -208,7 +246,7 @@ function ManageProductAvailability(){
 
                                     <tbody>
                                         {
-                                            productData.map(
+                                            SortedProductList.map(
                                                 product =>(
                                                     <tr key={product.productId}>
                                                         <td><b>{product.name}</b></td>
@@ -222,7 +260,7 @@ function ManageProductAvailability(){
                                             )
                                         }
                                     </tbody>
-                                </table>                    
+                                </table>   
                             </>
                         )
                 }

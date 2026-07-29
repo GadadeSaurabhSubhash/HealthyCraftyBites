@@ -34,6 +34,7 @@ function AddProductForm() {
     const [toastResponseMessage, setToastResponseMessage] = useState("");
     const [showToast, setShowToast] = useState(false);
 
+    
     // Shared regex for decimal(10,2) fields -> total 10 digits, 2 after decimal (so max 8 before decimal)
     const decimalRegex = /^\d{1,8}(\.\d{1,2})?$/;
 

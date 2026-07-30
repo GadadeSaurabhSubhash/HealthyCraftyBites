@@ -1,9 +1,9 @@
 import "../common_components/css_files/NavbarAdminHomeCSS.css"
 import logoutButton from "../common_components/images/logout_button.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function NavbarAdminHome({page_title,page_logo,feature_component,home_route}){
-    let component_name = feature_component;
+function NavbarCashCounterHome({page_title,page_logo,feature_component,home_route}){
+    const navigate = useNavigate();
     return(
         <>
             <div className="Navbar py-0">
@@ -18,8 +18,20 @@ function NavbarAdminHome({page_title,page_logo,feature_component,home_route}){
                                 </div>
                         </div>
                     </Link>
-                           <div className="d-flex align-items-center ms-auto">
+                       
 
+                <div className="d-flex align-items-center ms-auto">
+
+    <button
+        type="button"
+        className="btn btn-primary me-3"
+        onClick={() => navigate("/admincashcounterhome/vieworder")}
+    >
+        View Orders
+    </button>
+
+
+    
             
             <img
                 className="p-2"
@@ -41,4 +53,4 @@ function NavbarAdminHome({page_title,page_logo,feature_component,home_route}){
     )
 }
 
-export default NavbarAdminHome
+export default NavbarCashCounterHome

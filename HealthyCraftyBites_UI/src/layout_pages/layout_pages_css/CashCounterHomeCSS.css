@@ -1,0 +1,26 @@
+.CashCounterHome {
+    background-image: url("../layout_pages_images/admin_manager_home_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.cash-counter-table {
+    background-color: #c66cda;
+    color: #faf6f6;
+    border: 2px solid #c66cda;
+}
+
+.cash-counter-table th,
+.cash-counter-table td {
+    background-color: #c66cda;
+    border-width: 2px;
+    border-color: #eaebec;
+}
+
+.cash-counter-table thead th {
+    border: 1px solid #020304;
+    background-color: #c66cda;
+}

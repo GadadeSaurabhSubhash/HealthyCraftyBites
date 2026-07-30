@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,7 +48,16 @@ public class MenuServiceController {
 	public ResponseEntity<ApiResponse<ProductDTO>> changeProductAvailabilityStatus(@RequestParam(name = "targetProductId") int targetProductId,@RequestParam(name = "newAvailabilityStatus") int newAvailabilityStatus) {
 		ProductDTO objUpdatedProduct = objMenuService.changeProductAvailabilityStatus(targetProductId, newAvailabilityStatus);
 		
-		ApiResponse<ProductDTO> response = ApiResponse.success("Product Updated successfully", objUpdatedProduct);
+		ApiResponse<ProductDTO> response = ApiResponse.success("Availability Status Updated successfully", objUpdatedProduct);
+		
+		return new ResponseEntity<>(response,HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/deleteproduct")
+	public ResponseEntity<ApiResponse<ProductDTO>> deleteProduct(@RequestParam(name = "targetProductId") int targetProductId) {
+		ProductDTO objDeletedProduct = objMenuService.deleteProduct(targetProductId);
+		
+		ApiResponse<ProductDTO> response = ApiResponse.success("Product Deleted successfully", objDeletedProduct);
 		
 		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
@@ -78,7 +88,7 @@ public class MenuServiceController {
 	public ResponseEntity<ApiResponse<IngredientDTO>> changeIngredientAvailabilityStatus(@RequestParam(name = "targetIngredientId") int targetIngredientId,@RequestParam(name = "newAvailabilityStatus") int newAvailabilityStatus) {
 		IngredientDTO objUpdatedIngredient = objMenuService.changeIngredientAvailabilityStatus(targetIngredientId, newAvailabilityStatus);
 		
-		ApiResponse<IngredientDTO> response = ApiResponse.success("Ingredient Updated successfully", objUpdatedIngredient);
+		ApiResponse<IngredientDTO> response = ApiResponse.success("Availability Status Updated successfully", objUpdatedIngredient);
 		
 		return new ResponseEntity<>(response,HttpStatus.OK);
 	}

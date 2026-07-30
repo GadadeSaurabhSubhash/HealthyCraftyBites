@@ -1,0 +1,625 @@
+/* global for home  */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-page{
+    background-image: url("../layout_pages_images/home_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* navbar */
+
+
+.home-navbar{
+    background-color: #013007;
+    padding: 12px 45px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.home-navbar .container-fluid{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.website-name{
+    font-family: "Gilroy-Bold", sans-serif;
+    font-size: 2rem;
+    color: #F7E8A4;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.website-slogan{
+    font-family: "Urbanist", sans-serif;
+    font-size: 0.95rem;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.user-icon{
+    font-size: 2.3rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-icon:hover{
+    transform: scale(1.1);
+    color: #F7E8A4;
+}
+
+/* hero section from here */
+
+.hero-content{
+    
+    padding-left: 25px;
+}
+
+.hero-section{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.hero-heading{
+    font-family: "Gilroy-Bold", sans-serif;
+}
+/* login form */
+
+.login-card{
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+    border: 1px solid rgba(1,48,7,0.08);
+    max-width: 420px;
+    width: 100%;
+}
+.login-card form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.login-subtitle{
+    color: #555;
+    line-height: 1.5;
+}
+.login-card input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #CFCFCF;
+    border-radius: 10px;
+    outline: none;
+}
+.email-input-label,
+.password-input-label{
+    font-family: "Urbanist", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #444444;
+}
+
+.login-btn{
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #013007;
+    color: #FFFFFF;
+    font-family: "Gilroy-Bold", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.login-btn:hover{
+    background-color: #02450B;
+}
+
+.signup-text{
+    margin: 16px 0 0 0;
+    margin-top: 18px;
+    text-align: center;
+    font-family: "Urbanist", sans-serif;
+    color: #555;
+    font-size: 15px;
+}
+
+.signup-link{
+    color: #013007;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link:hover{
+    text-decoration: underline;
+}
+
+
+
+/* Features Section */
+
+.features-section{
+
+    padding:70px 0;
+
+}
+
+.section-heading{
+
+    font-size:18px;
+
+    color:#7A7A7A;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+
+    font-family: "Gilroy-Bold", sans-serif;
+
+}
+
+.section-subtitle{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#013007;
+
+}
+
+
+
+/* Food Cards */
+
+.food-card{
+
+    background:#fff;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+    max-width:280px;
+
+    width:100%;
+
+    margin:auto;
+
+}
+
+.food-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.food-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+.food-card-body{
+
+    padding:14px 16px;
+
+}
+
+.food-card-body h3{
+
+    color:#013007;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    font-family: "urbanist", sans-serif;
+
+}
+
+.food-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#444;
+
+    font-size:18px;
+
+    font-family: "Urbanist", sans-serif;
+
+}
+
+.food-footer i{
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.food-card:hover .food-footer i{
+
+    transform:translateX(5px);
+
+}
+
+/*=========================
+Build Banner
+=========================*/
+
+.build-banner{
+
+    margin-top:60px;
+
+    background:#F8F6EB;
+
+    border-radius:20px;
+
+    padding:35px 45px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.banner-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.banner-icon{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:#AFC39B;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:60px;
+
+}
+
+.build-banner h2{
+
+    color:#013007;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.build-banner p{
+
+    font-size:20px;
+
+    color:#444;
+
+    margin:0;
+
+}
+
+.build-btn{
+
+    background:#013007;
+
+    color:white;
+
+    border:none;
+
+    padding:18px 45px;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.build-btn:hover{
+
+    background:#02450B;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================
+Responsive
+=========================*/
+
+@media(max-width:992px){
+
+.build-banner{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:30px;
+
+}
+
+.banner-left{
+
+flex-direction:column;
+
+}
+
+}
+
+/*=========================
+About Section
+=========================*/
+
+.about-section{
+    padding:90px 0;
+}
+
+.about-image{
+    width:100%;
+    max-width:460px;
+    border-radius:20px;
+    
+}
+
+.about-tagline{
+    color:#F4A261;
+    font-family:"Urbanist",sans-serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.about-heading{
+    color:#013007;
+    font-family:"Gilroy-Bold",sans-serif;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.about-text{
+    color:#555;
+    font-family:"Urbanist",sans-serif;
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.about-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.about-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#FFFFFF;
+    padding:18px 22px;
+    border-radius:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    min-width:220px;
+    
+}
+
+.about-item i{
+    font-size:30px;
+    color:#013007;
+}
+
+.about-item h6{
+    margin:0;
+    font-family:"Gilroy-Bold",sans-serif;
+    color:#013007;
+}
+
+.about-item span{
+    font-family:"Urbanist",sans-serif;
+    color:#666;
+    font-size:15px;
+}
+
+/*=========================
+Responsive
+=========================*/
+
+@media(max-width:992px){
+
+.about-section{
+    text-align:center;
+}
+
+.about-details{
+    justify-content:center;
+}
+
+.about-item{
+    width:100%;
+    max-width:350px;
+}
+
+.about-heading{
+    font-size:34px;
+}
+
+}
+.about-item{
+    transition:all .3s ease;
+}
+
+.about-item:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
+}
+
+/***************** footer ******************/
+
+/*=========================
+Footer
+=========================*/
+
+.footer-section{
+
+    margin-top:80px;
+
+    padding:22px 0;
+
+    background:#013007;
+
+}
+
+.footer-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.footer-map{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    color:#FFFFFF;
+
+    font-family:"Urbanist",sans-serif;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.footer-map:hover{
+
+    color:#F4A261;
+
+}
+
+.footer-map i{
+
+    font-size:24px;
+
+}
+
+.footer-copy{
+
+    margin:0;
+
+    color:#F7E8A4;
+
+    font-family:"Urbanist",sans-serif;
+
+    font-size:15px;
+
+}
+
+.footer-admin img{
+
+    width:45px;
+
+    height:45px;
+
+    object-fit:contain;
+
+    opacity:.85;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.footer-admin img:hover{
+
+    transform:scale(1.08);
+
+    opacity:1;
+
+}
+
+@media(max-width:768px){
+
+.footer-content{
+
+    flex-direction:column;
+
+    gap:18px;
+
+    text-align:center;
+
+}
+
+}

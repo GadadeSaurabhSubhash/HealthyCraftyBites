@@ -12,4 +12,5 @@ public interface MenuService {
 	public List<IngredientDTO> viewAllIngredients();
 	public ProductDTO changeProductAvailabilityStatus(int targetProductId, int newAvailabilityStatus);
 	public IngredientDTO changeIngredientAvailabilityStatus(int targetIngredientId, int newAvailabilityStatus);
+	public ProductDTO deleteProduct(int targetProductId);
 }

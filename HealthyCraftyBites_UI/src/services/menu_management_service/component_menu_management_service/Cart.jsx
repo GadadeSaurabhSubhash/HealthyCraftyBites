@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../css_menu_management_service/CartCSS.css";
 import saladImage from "../images_menu_management_service/salad.png";
 
@@ -29,23 +28,31 @@ function Cart() {
 
                 <div className="cart-header">
 
-                    <div className="product-column">
+                    <div className="cart-product-column">
+
                         Product
+
                     </div>
 
-                    <div className="quantity-column">
+                    <div className="cart-quantity-column">
+
                         Quantity
+
                     </div>
 
-                    <div className="price-column">
+                    <div className="cart-price-column">
+
                         Price
+
                     </div>
 
-                    <div className="total-column">
+                    <div className="cart-total-column">
+
                         Total
+
                     </div>
 
-                    <div className="action-column">
+                    <div className="cart-action-column">
 
                     </div>
 
@@ -58,15 +65,15 @@ function Cart() {
 
                 <div className="cart-row">
 
-                    <div className="product-column">
+                    <div className="cart-product-column">
 
                         <img
                             src={saladImage}
                             alt="Greek Salad"
-                            className="product-image"
+                            className="cart-product-image"
                         />
 
-                        <div className="product-info">
+                        <div className="cart-product-info">
 
                             <h3>
 
@@ -92,9 +99,10 @@ function Cart() {
 
                     </div>
 
-                    <div className="quantity-column">
 
-                        <div className="quantity-box">
+                    <div className="cart-quantity-column">
+
+                        <div className="cart-quantity-box">
 
                             <button>-</button>
 
@@ -106,21 +114,24 @@ function Cart() {
 
                     </div>
 
-                    <div className="price-column">
+
+                    <div className="cart-price-column">
 
                         ₹299
 
                     </div>
 
-                    <div className="total-column">
+
+                    <div className="cart-total-column">
 
                         ₹299
 
                     </div>
 
-                    <div className="action-column">
 
-                        <button className="delete-btn">
+                    <div className="cart-action-column">
+
+                        <button className="cart-delete-btn">
 
                             <i className="bi bi-x-lg"></i>
 
@@ -137,15 +148,15 @@ function Cart() {
 
                 <div className="cart-row">
 
-                    <div className="product-column">
+                    <div className="cart-product-column">
 
                         <img
                             src={saladImage}
                             alt="Paneer Wrap"
-                            className="product-image"
+                            className="cart-product-image"
                         />
 
-                        <div className="product-info">
+                        <div className="cart-product-info">
 
                             <h3>
 
@@ -171,9 +182,10 @@ function Cart() {
 
                     </div>
 
-                    <div className="quantity-column">
 
-                        <div className="quantity-box">
+                    <div className="cart-quantity-column">
+
+                        <div className="cart-quantity-box">
 
                             <button>-</button>
 
@@ -185,21 +197,24 @@ function Cart() {
 
                     </div>
 
-                    <div className="price-column">
+
+                    <div className="cart-price-column">
 
                         ₹249
 
                     </div>
 
-                    <div className="total-column">
+
+                    <div className="cart-total-column">
 
                         ₹498
 
                     </div>
 
-                    <div className="action-column">
 
-                        <button className="delete-btn">
+                    <div className="cart-action-column">
+
+                        <button className="cart-delete-btn">
 
                             <i className="bi bi-x-lg"></i>
 
@@ -212,14 +227,13 @@ function Cart() {
             </div>
 
 
-
             {/* ===========================
                     Summary
             =========================== */}
 
             <div className="cart-summary">
 
-                <div className="coupon-card">
+                <div className="cart-coupon-card">
 
                     <h3>
 
@@ -241,10 +255,9 @@ function Cart() {
                 </div>
 
 
+                <div className="cart-amount-card">
 
-                <div className="amount-card">
-
-                    <div className="amount-row">
+                    <div className="cart-amount-row">
 
                         <span>
 
@@ -260,7 +273,8 @@ function Cart() {
 
                     </div>
 
-                    <div className="amount-row">
+
+                    <div className="cart-amount-row">
 
                         <span>
 
@@ -279,7 +293,8 @@ function Cart() {
 
                     <hr />
 
-                    <div className="amount-row grand-total">
+
+                    <div className="cart-amount-row cart-grand-total">
 
                         <span>
 
@@ -300,14 +315,13 @@ function Cart() {
             </div>
 
 
-
             {/* ===========================
                     Bottom Buttons
             =========================== */}
 
             <div className="cart-actions">
 
-                <button className="back-btn">
+                <button className="cart-back-btn">
 
                     <i className="bi bi-arrow-left"></i>
 
@@ -315,7 +329,8 @@ function Cart() {
 
                 </button>
 
-                <button className="checkout-btn">
+
+                <button className="cart-checkout-btn">
 
                     Proceed to Checkout
 

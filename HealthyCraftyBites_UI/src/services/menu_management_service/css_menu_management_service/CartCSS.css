@@ -10,6 +10,7 @@
 
 }
 
+
 /*==================================
 Heading
 ==================================*/
@@ -22,11 +23,12 @@ Heading
 
     color:#013007;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-family:"Gilroy-Bold", sans-serif;
 
     margin-bottom:45px;
 
 }
+
 
 /*==================================
 Table
@@ -44,6 +46,7 @@ Table
 
 }
 
+
 /*==================================
 Header
 ==================================*/
@@ -58,18 +61,20 @@ Header
 
     padding:20px 30px;
 
-    border-radius:16px 16px 0 0;
     background:#FAFAFA;
 
     border-bottom:1px solid #E8E8E8;
 
-    font-family:"Gilroy-Bold";
+    border-radius:16px 16px 0 0;
+
+    font-family:"Gilroy-Bold", sans-serif;
 
     color:#666;
 
     font-size:16px;
 
 }
+
 
 /*==================================
 Rows
@@ -102,12 +107,11 @@ Rows
     background:#FCFFFB;
 
 }
-
 /*==================================
 Product
 ==================================*/
 
-.product-column{
+.cart-product-column{
 
     display:flex;
 
@@ -117,7 +121,7 @@ Product
 
 }
 
-.product-image{
+.cart-product-image{
 
     width:110px;
 
@@ -131,17 +135,17 @@ Product
 
 }
 
-.product-info{
+.cart-product-info{
 
     display:flex;
 
     flex-direction:column;
 
-   gap:12px;
+    gap:12px;
 
 }
 
-.product-info h3{
+.cart-product-info h3{
 
     margin:0;
 
@@ -149,11 +153,11 @@ Product
 
     color:#013007;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-family:"Gilroy-Bold", sans-serif;
 
 }
 
-.product-info p{
+.cart-product-info p{
 
     margin:0;
 
@@ -165,7 +169,7 @@ Product
 
 }
 
-.product-info span{
+.cart-product-info span{
 
     display:flex;
 
@@ -175,17 +179,18 @@ Product
 
     color:#2E7D32;
 
-    font-weight:600;
-
     font-size:15px;
 
+    font-weight:600;
+
 }
+
 
 /*==================================
 Quantity
 ==================================*/
 
-.quantity-column{
+.cart-quantity-column{
 
     display:flex;
 
@@ -193,11 +198,15 @@ Quantity
 
 }
 
-.quantity-box{
+.cart-quantity-box{
 
     display:flex;
 
     align-items:center;
+
+    justify-content:space-between;
+
+    width:120px;
 
     border:2px solid #013007;
 
@@ -207,7 +216,7 @@ Quantity
 
 }
 
-.quantity-box button{
+.cart-quantity-box button{
 
     width:42px;
 
@@ -227,7 +236,7 @@ Quantity
 
 }
 
-.quantity-box button:hover{
+.cart-quantity-box button:hover{
 
     background:#013007;
 
@@ -235,38 +244,27 @@ Quantity
 
 }
 
-.quantity-box span{
+.cart-quantity-box span{
 
-    width:45px;
+    flex:1;
 
     text-align:center;
 
-    font-family:"Gilroy-Bold";
+    font-size:18px;
+
+    font-family:"Gilroy-Bold", sans-serif;
 
     color:#013007;
 
-    font-size:18px;
-
-}
-.quantity-box{
-
-    width:120px;
-
-    justify-content:space-between;
-
 }
 
-.quantity-box span{
 
-    flex:1;
-}
 /*==================================
 Price
 ==================================*/
 
-.price-column,
-
-.total-column{
+.cart-price-column,
+.cart-total-column{
 
     text-align:center;
 
@@ -274,15 +272,16 @@ Price
 
     color:#013007;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-family:"Gilroy-Bold", sans-serif;
 
 }
+
 
 /*==================================
 Delete
 ==================================*/
 
-.action-column{
+.cart-action-column{
 
     display:flex;
 
@@ -290,7 +289,7 @@ Delete
 
 }
 
-.delete-btn{
+.cart-delete-btn{
 
     width:40px;
 
@@ -310,7 +309,7 @@ Delete
 
 }
 
-.delete-btn:hover{
+.cart-delete-btn:hover{
 
     color:#D32F2F;
 
@@ -329,7 +328,12 @@ Summary Section
 
 }
 
-.coupon-card{
+
+/*==================================
+Coupon Card
+==================================*/
+
+.cart-coupon-card{
 
     flex:1;
 
@@ -343,7 +347,7 @@ Summary Section
 
 }
 
-.coupon-card h3{
+.cart-coupon-card h3{
 
     margin:0 0 20px;
 
@@ -351,12 +355,11 @@ Summary Section
 
     font-size:28px;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-family:"Gilroy-Bold", sans-serif;
 
 }
 
-
-.coupon-card input{
+.cart-coupon-card input{
 
     width:100%;
 
@@ -364,32 +367,43 @@ Summary Section
 
     padding:0 18px;
 
+    box-sizing:border-box;
+
+    background:#FFFFFF;
+
+    color:#013007;
+
     border:1px solid #D8D8D8;
 
     border-radius:10px;
 
-    font-size:15px;
-
     outline:none;
 
-    margin-bottom:18px;
+    font-size:15px;
 
     transition:.25s;
-    box-sizing:border-box;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    box-shadow:none;
 
 }
 
-.coupon-card input:focus{
+.cart-coupon-card input:focus{
 
     border-color:#013007;
 
 }
 
-.coupon-card button{
+.cart-coupon-card button{
 
-    width:180px;
+    width:100%;
 
-    height:48px;
+    height:50px;
+
+    margin-top:15px;
 
     border:none;
 
@@ -399,9 +413,9 @@ Summary Section
 
     color:#FFFFFF;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-size:16px;
 
-    font-size:15px;
+    font-family:"Gilroy-Bold", sans-serif;
 
     cursor:pointer;
 
@@ -409,17 +423,18 @@ Summary Section
 
 }
 
-.coupon-card button:hover{
+.cart-coupon-card button:hover{
 
     background:#02530C;
 
 }
 
+
 /*==================================
-Amount Details
+Amount Card
 ==================================*/
 
-.amount-card{
+.cart-amount-card{
 
     flex:1;
 
@@ -433,7 +448,7 @@ Amount Details
 
 }
 
-.amount-row{
+.cart-amount-row{
 
     display:flex;
 
@@ -447,34 +462,31 @@ Amount Details
 
 }
 
-.amount-row span:last-child{
-
-    font-family: "Gilroy-Bold", sans-serif;
+.cart-amount-row span:last-child{
 
     color:#013007;
 
+    font-family:"Gilroy-Bold", sans-serif;
+
 }
 
-.amount-card hr{
-
-    border:none;
-
-    height:1px;
-
-    background:#030303;
+.cart-amount-card hr{
 
     margin:24px 0;
 
+    border:none;
+
+    border-top:1px solid #010101;
+
 }
 
-.grand-total{
+.cart-grand-total{
 
     font-size:23px;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-family:"Gilroy-Bold", sans-serif;
 
 }
-
 /*==================================
 Bottom Buttons
 ==================================*/
@@ -485,16 +497,16 @@ Bottom Buttons
 
     justify-content:space-between;
 
+    align-items:stretch;
+
     gap:25px;
 
     margin-top:40px;
-    align-items:stretch;
 
 }
 
-.back-btn,
-
-.checkout-btn{
+.cart-back-btn,
+.cart-checkout-btn{
 
     flex:1;
 
@@ -504,7 +516,7 @@ Bottom Buttons
 
     font-size:17px;
 
-    font-family: "Gilroy-Bold", sans-serif;
+    font-family:"Gilroy-Bold", sans-serif;
 
     cursor:pointer;
 
@@ -512,7 +524,7 @@ Bottom Buttons
 
 }
 
-.back-btn{
+.cart-back-btn{
 
     display:flex;
 
@@ -522,15 +534,15 @@ Bottom Buttons
 
     gap:10px;
 
-    border:2px solid #013007;
-
     background:#FFFFFF;
 
     color:#013007;
 
+    border:2px solid #013007;
+
 }
 
-.back-btn:hover{
+.cart-back-btn:hover{
 
     background:#013007;
 
@@ -538,7 +550,7 @@ Bottom Buttons
 
 }
 
-.checkout-btn{
+.cart-checkout-btn{
 
     border:none;
 
@@ -548,61 +560,13 @@ Bottom Buttons
 
 }
 
-.checkout-btn:hover{
+.cart-checkout-btn:hover{
 
     background:#02530C;
 
 }
-.coupon-card input{
 
-    width:100%;
 
-    height:50px;
-
-    padding:0 18px;
-
-    background:#FFFFFF !important;
-
-    color:#013007 !important;
-
-    border:1px solid #D8D8D8 !important;
-
-    border-radius:10px;
-
-    outline:none;
-
-    box-shadow:none !important;
-
-    appearance:none;
-
-    -webkit-appearance:none;
-
-}
-.coupon-card button{
-
-    width:100%;
-
-    height:50px;
-
-    margin-top:5px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#013007;
-
-    color:#FFFFFF;
-
-    font-family:"Gilroy-Bold", sans-serif;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
 /*==================================
 Responsive
 ==================================*/
@@ -610,7 +574,6 @@ Responsive
 @media(max-width:992px){
 
     .cart-header,
-
     .cart-row{
 
         grid-template-columns:1fr;
@@ -619,19 +582,16 @@ Responsive
 
     }
 
-    .product-column{
+    .cart-product-column{
 
         align-items:flex-start;
 
     }
 
-    .quantity-column,
-
-    .price-column,
-
-    .total-column,
-
-    .action-column{
+    .cart-quantity-column,
+    .cart-price-column,
+    .cart-total-column,
+    .cart-action-column{
 
         justify-content:flex-start;
 
@@ -645,7 +605,8 @@ Responsive
 
     }
 
-    .amount-card{
+    .cart-amount-card,
+    .cart-coupon-card{
 
         width:100%;
 

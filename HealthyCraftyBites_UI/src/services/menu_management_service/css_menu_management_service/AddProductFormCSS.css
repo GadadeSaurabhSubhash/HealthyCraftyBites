@@ -17,10 +17,10 @@
     text-shadow: 1px 2px 4px #000000;
 }
 
-input[type="text"],
-input[type="file"],
-select.form-select,
-textarea.form-control{
+.ProductForm input[type="text"],
+.ProductForm input[type="file"],
+.ProductForm select.form-select,
+.ProductForm textarea.form-control{
     color: #290133; 
     background-color:#f1b8ff; 
     filter: drop-shadow(1px 1px 2px black);

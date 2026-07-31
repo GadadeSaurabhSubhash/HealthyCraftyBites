@@ -8,11 +8,11 @@
 
     padding:22px;
 
-    background:#fff;
-
-    border-radius:22px;
+    background:#FFFFFF;
 
     border:1px solid #EFE6DA;
+
+    border-radius:22px;
 
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 
@@ -28,9 +28,10 @@
 
 }
 
-/*==========================
+
+/*==================================
 Top Section
-==========================*/
+==================================*/
 
 .menu-top{
 
@@ -41,10 +42,9 @@ Top Section
 }
 
 
-
-/*==========================
+/*==================================
 Left Section
-==========================*/
+==================================*/
 
 .menu-left{
 
@@ -70,23 +70,10 @@ Left Section
 
 }
 
-.menu-price{
 
-    margin:0;
-
-    font-size:40px;
-
-    color:#013007;
-
-    font-family:"Gilroy-Bold";
-
-}
-
-
-
-/*==========================
-Right Section
-==========================*/
+/*==================================
+Content
+==================================*/
 
 .menu-content{
 
@@ -95,10 +82,25 @@ Right Section
 }
 
 
+/*==================================
+Price
+==================================*/
 
-/*==========================
+.menu-price{
+
+    margin:0;
+
+    font-size:40px;
+
+    color:#013007;
+
+    font-family:"Gilroy-Bold", sans-serif;
+
+}
+
+/*==================================
 Header
-==========================*/
+==================================*/
 
 .menu-header{
 
@@ -118,11 +120,11 @@ Header
 
     color:#013007;
 
-    font-family:"Gilroy-Bold";
+    font-family:"Gilroy-Bold", sans-serif;
 
 }
 
-.veg-icon{
+.menu-veg-icon{
 
     font-size:22px;
 
@@ -131,10 +133,9 @@ Header
 }
 
 
-
-/*==========================
+/*==================================
 Description
-==========================*/
+==================================*/
 
 .menu-description{
 
@@ -148,23 +149,29 @@ Description
 
 }
 
-hr{
 
-    margin:12px 0;
+/*==================================
+Divider
+==================================*/
 
-    border:none;
+.menu-divider{
 
-    border-top:1px solid #ECECEC;
+    width:100%;
+
+    height:1px;
+
+    background:#676666;
+
+    margin:18px 0;
 
 }
 
 
-
-/*==========================
+/*==================================
 Nutrition
-==========================*/
+==================================*/
 
-.nutrition-title{
+.menu-nutrition-title{
 
     margin:14px 0;
 
@@ -172,13 +179,13 @@ Nutrition
 
     color:#013007;
 
-    font-family:"Gilroy-Bold";
+    font-family:"Gilroy-Bold", sans-serif;
 
     letter-spacing:.5px;
 
 }
 
-.nutrition-grid{
+.menu-nutrition-grid{
 
     display:grid;
 
@@ -190,7 +197,7 @@ Nutrition
 
 }
 
-.nutrition-item{
+.menu-nutrition-item{
 
     display:flex;
 
@@ -208,19 +215,19 @@ Nutrition
 
 }
 
-.nutrition-item:hover{
+.menu-nutrition-item:hover{
 
     background:#F2F8F2;
 
 }
 
-.nutrition-icon{
+.menu-nutrition-icon{
 
     font-size:24px;
 
 }
 
-.nutrition-name{
+.menu-nutrition-name{
 
     display:block;
 
@@ -230,31 +237,20 @@ Nutrition
 
 }
 
-.nutrition-item strong{
+.menu-nutrition-item strong{
 
     display:block;
 
     font-size:17px;
 
-    color:#222222;
-
     font-weight:600;
 
-}
-.menu-actions{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
+    color:#222222;
 
 }
-
-
-/*==========================
+/*==================================
 Footer
-==========================*/
+==================================*/
 
 .menu-footer{
 
@@ -268,7 +264,22 @@ Footer
 
 }
 
-.quantity-box{
+.menu-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+/*==================================
+Quantity
+==================================*/
+
+.menu-quantity-box{
 
     display:flex;
 
@@ -284,7 +295,7 @@ Footer
 
 }
 
-.quantity-box button{
+.menu-quantity-box button{
 
     width:50px;
 
@@ -304,13 +315,13 @@ Footer
 
 }
 
-.quantity-box button:hover{
+.menu-quantity-box button:hover{
 
     background:#EDF6EE;
 
 }
 
-.quantity-box span{
+.menu-quantity-box span{
 
     width:50px;
 
@@ -325,12 +336,11 @@ Footer
 }
 
 
+/*==================================
+Add To Cart Button
+==================================*/
 
-/*==========================
-Button
-==========================*/
-
-.cart-btn{
+.menu-cart-btn{
 
     display:flex;
 
@@ -352,7 +362,7 @@ Button
 
     font-size:17px;
 
-    font-family:"Gilroy-Bold";
+    font-family:"Gilroy-Bold", sans-serif;
 
     cursor:pointer;
 
@@ -362,7 +372,7 @@ Button
 
 }
 
-.cart-btn:hover{
+.menu-cart-btn:hover{
 
     background:#02510C;
 

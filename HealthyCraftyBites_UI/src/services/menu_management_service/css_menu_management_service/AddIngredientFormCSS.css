@@ -17,10 +17,10 @@
     text-shadow: 1px 2px 4px #000000;
 }
 
-input[type="text"],
-input[type="file"],
-select.form-select,
-textarea.form-control{
+.IngredientForm input[type="text"],
+.IngredientForm input[type="file"],
+.IngredientForm select.form-select,
+.IngredientFormtextarea.form-control{
     color: #290133; 
     background-color:#f1b8ff; 
     filter: drop-shadow(1px 1px 2px black);

@@ -3,7 +3,8 @@ import DemoPage from "./services/menu_management_service/component_menu_manageme
 import AdminManagerHome from "./layout_pages/admin_manager/AdminManagerHome";
 import AdminLogin from "./services/authentication_service/pages_authentication_service/AdminLogin"
 import AddProductForm from "./services/menu_management_service/component_menu_management_service/AddProductForm"
-import AddIngredientForm from "./services/menu_management_service/component_menu_management_service/AddingredientForm";
+import AddIngredientForm from "./services/menu_management_service/component_menu_management_service/AddIngredientForm";
+import ManageProductAvailability from "./services/menu_management_service/component_menu_management_service/ManageProductAvailability";
 import { Routes, Route } from "react-router-dom";
 
 
@@ -18,6 +19,7 @@ function App() {
                <Route path="/adminmanagerhome" element={<AdminManagerHome />}>
                   <Route path="addproduct" element={<AddProductForm />} />
                   <Route path="addingredient" element={<AddIngredientForm />} />
+                  <Route path="manageproductsavailability" element={<ManageProductAvailability />} />
                </Route>
         </Routes>
     </>

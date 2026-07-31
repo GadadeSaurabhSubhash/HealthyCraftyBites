@@ -40,3 +40,23 @@ button[type="submit"]:hover {
     text-shadow: 1px 2px 2px #000000;
     filter: drop-shadow(2px 2px 3px black);
 }
+
+.toastBox {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-family: 'Urbanist', sans-serif;
+    background-color: greenyellow;
+    color:black;
+    padding: 15px 20px;
+    border-radius: 8px;
+    filter: drop-shadow(2px 2px 3px black);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.toastBox button {
+    font-size: 18px;
+}

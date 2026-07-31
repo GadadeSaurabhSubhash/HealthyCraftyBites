@@ -3,7 +3,6 @@ import "../layout_pages_css/CashCounterHomeCSS.css";
 import NavbarCashCounterHome from "../../common_components/NavbarCashCounterHome.jsx"
 import page_logo_path from "../layout_pages_images/admin_manager_dashboard_logo.png"
 
-// Testing sathi 
 const MOCK_ORDERS = {
   200: {
 	 orderNumber: 200,
@@ -18,7 +17,6 @@ const MOCK_ORDERS = {
 };
 
 
-// Testing sathi 
 function fetchOrderByNumber(orderNumber) {
   return new Promise((resolve, reject) => {
 	 setTimeout(() => {
@@ -81,14 +79,12 @@ export default function AdminCashCounterHome() {
 	 }
   };
 
-  // Enter dablya var check
   const handleKeyDown = ({ key }) => {
 	 if (key === "Enter") {
 		handleCheck();
 	 }
   };
 
-  // Loading state aahe
   const handlePlaceOrder = () => {
 	 if (!order) return;
 
@@ -272,7 +268,6 @@ export default function AdminCashCounterHome() {
 			 </section>
 		  )}
 
-		  // Renders a success message after placing the order
 		  {placedMessage && (
 			 <div className="alert alert-success mt-4 mb-0">
 				{placedMessage}

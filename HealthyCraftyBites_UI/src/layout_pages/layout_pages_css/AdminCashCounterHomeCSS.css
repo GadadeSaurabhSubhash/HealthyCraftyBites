@@ -1,9 +1,8 @@
-.AdminManagerHome{
-    background-image: url("../layout_pages_images/admin_manager_home_background.png");
+.AdminCashCounterHome{
+    background-image: url("../../layout_pages_images/admin_cashcounter_home_background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     min-height: 100vh;
 }
-

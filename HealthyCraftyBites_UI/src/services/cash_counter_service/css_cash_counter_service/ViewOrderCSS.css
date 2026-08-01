@@ -1,0 +1,207 @@
+.ViewOrder {
+  max-width: 900px;
+  padding: 20px;
+}
+
+.ViewOrder h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.search-section input {
+  padding: 8px 44px 8px 12px; /* room for empty-block + check inside */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 320px; /* increased length */
+  min-width: 140px;
+}
+
+.search-section button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-section .create-btn {
+  background-color: #6c757d;
+}
+
+.search-section .check-btn {
+  padding: 6px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-section button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* style when check button is placed inside the input wrapper */
+.search-input-wrapper .check-btn.inside {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  height: 28px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.search-input-wrapper .empty-block {
+  position: absolute;
+  right: 46px; /* left of the check button */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.error-message {
+  color: #d9534f;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f2dede;
+  border-radius: 4px;
+}
+
+.order-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.order-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+}
+
+.order-header div {
+  font-size: 14px;
+}
+
+.order-header strong {
+  font-weight: bold;
+}
+
+.customer-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.items-table thead tr {
+  background-color: #f0f0f0;
+}
+
+.items-table th,
+.items-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.items-table th {
+  font-weight: bold;
+  text-align: center;
+}
+
+.items-table td {
+  text-align: center;
+}
+
+.items-table .qty-col {
+  text-align: center;
+}
+
+.items-table .price-col {
+  text-align: right;
+}
+
+.items-table .total-col {
+  text-align: right;
+}
+
+.items-table .totals-row {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.payment-section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 2px solid #ddd;
+}
+
+.payment-section label {
+  font-weight: bold;
+}
+
+.payment-section select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.payment-section button {
+  padding: 10px 30px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.success-message {
+  color: #155724;
+  padding: 20px;
+  background-color: #d4edda;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #c3e6cb;
+  margin-top: 20px;
+}

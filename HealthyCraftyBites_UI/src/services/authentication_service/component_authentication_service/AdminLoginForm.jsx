@@ -4,34 +4,11 @@ import "../css_authentication_service/AdminLoginFormCSS.css"
 import { useState } from "react";
 
 function AdminLoginForm() {
-    const [storeId, setStoreId] = useState("");
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
-    const [storeIdError, setStoreIdError] = useState("");
     const [userNameError, setUserNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
-
-    // Store ID Validation
-    function validateStoreId() {
-
-        let trimmedStoreId = storeId.trim();
-
-        if (trimmedStoreId === "") {
-            setStoreIdError("Store ID is required.");
-            return false;
-        }
-
-        if (!/^\d+$/.test(trimmedStoreId)) {
-            setStoreIdError("Store ID must contain only numeric values.");
-            return false;
-        }
-
-        // Clear error
-        setStoreIdError("");
-        return true;
-    }
 
     // Username Validation
     function validateUserName() {
@@ -86,14 +63,12 @@ function AdminLoginForm() {
     // Validate All Fields
     async function validateCredentials() {
 
-        let isStoreIdValid = validateStoreId();
         let isUserNameValid = validateUserName();
         let isPasswordValid = validatePassword();
 
-        if (isStoreIdValid && isUserNameValid && isPasswordValid) {
+        if (isUserNameValid && isPasswordValid) {
 
             let credentials = {
-            storeId:storeId,
             userName:userName,
             password:password
         }
@@ -118,22 +93,6 @@ function AdminLoginForm() {
             <div className="formHeading mb-3">
                 <h1>Admin-Manager Login</h1>
             </div>
-
-            <div className="mb-3">
-                <label htmlFor="storeId" className="form-label fw-bold">
-                Enter Store ID
-                </label>
-                <input
-                type="text"
-                className="form-control"
-                id="storeId"
-                name="storeId"
-                value={storeId}
-                onChange={(e) => setStoreId(e.target.value)}
-                onBlur={validateStoreId}
-                />
-            </div>
-            <div className="errorDisplayArea mb-3" id="errorDisplayForStoreId">{storeIdError}</div>
 
             <div className="mb-3">
                 <label htmlFor="userName" className="form-label fw-bold">

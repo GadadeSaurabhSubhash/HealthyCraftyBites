@@ -1,0 +1,109 @@
+.ManageIngredientAvailability{
+    background-color: rgba(82, 0, 110, 0.65);
+    border-radius: 20px;
+    filter: drop-shadow(3px 3px 3px black);
+}
+
+.ErrorMessage{
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: white;
+    text-shadow: 1px 2px 4px #000000;
+    font-style: italic;
+}
+
+.DBEmptyMessage{
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: white;
+    text-shadow: 1px 2px 4px #000000;
+    font-style: italic;
+}
+
+.IngredientDataTable {
+    border-radius: 20px;
+    width:100%;
+}
+
+.IngredientDataTable td{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #f3b8fc;
+    font-size: 17px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #3e0147;   
+}
+
+.IngredientDataTable th{
+    font-family: 'Gilroy-Bold', sans-serif;
+    background-color: #e53dff;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #3e0147;   
+}
+
+.Btn-1{
+    background-color: yellow;
+    color:#000000;
+    filter: drop-shadow(1px 2px 2px black); 
+    border-radius: 25px;
+    font-size: 15px;   
+}
+.Btn-1:hover{
+    transform: scale(1.1);
+}
+
+.Btn-2{
+    background-color:rgb(3, 158, 3);  
+    color:#000000;
+    filter: drop-shadow(1px 2px 2px black);  
+    border-radius: 25px; 
+    font-size: 15px;  
+}
+.Btn-2:hover{
+    transform: scale(1.1);
+}
+.Btn-3{
+    background-color:red; 
+    color:#000000; 
+    filter: drop-shadow(1px 2px 2px black);
+    border-radius: 25px; 
+    font-size: 15px;  
+}
+.Btn-3:hover{
+    transform: scale(1.1);
+}
+
+.toastBox {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-family: 'Urbanist', sans-serif;
+    background-color: greenyellow;
+    color:black;
+    padding: 15px 20px;
+    border-radius: 8px;
+    filter: drop-shadow(2px 2px 3px black);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.toastBox button {
+    font-size: 18px;
+}
+
+.SortOption p{
+    font-family: 'Urbanist', sans-serif;
+    color: #f3b8fc;
+    font-size: 17px;
+}
+
+.CategoryBox{
+    font-family: 'Urbanist', sans-serif;
+    background-color: #f3b8fc !important;
+    color:black;
+    font-size: 17px;
+}

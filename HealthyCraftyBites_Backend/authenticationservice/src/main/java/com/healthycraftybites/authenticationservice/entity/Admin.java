@@ -9,9 +9,6 @@ import jakarta.persistence.Table;
 @Table(name = "admin_details")
 public class Admin {
 	
-	@Column(name = "storeid")
-	private String storeId;
-
 	@Id
 	@Column(name = "username")
 	private String userName;
@@ -26,16 +23,6 @@ public class Admin {
 
 	public Admin() {
 		
-	}
-	
-
-
-	public String getStoreId() {
-		return storeId;
-	}
-
-	public void setStoreId(String storeId) {
-		this.storeId = storeId;
 	}
 
 	public String getUserName() {

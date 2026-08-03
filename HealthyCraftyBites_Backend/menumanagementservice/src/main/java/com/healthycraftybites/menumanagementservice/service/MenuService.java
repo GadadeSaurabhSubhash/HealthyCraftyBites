@@ -13,4 +13,9 @@ public interface MenuService {
 	public ProductDTO changeProductAvailabilityStatus(int targetProductId, int newAvailabilityStatus);
 	public IngredientDTO changeIngredientAvailabilityStatus(int targetIngredientId, int newAvailabilityStatus);
 	public ProductDTO deleteProduct(int targetProductId);
+	public IngredientDTO deleteIngredient(int targetIngredientId);
+	public ProductDTO viewProduct(String targetProductName);
+	public ProductDTO updateProduct(ProductDTO objProductDTO);
+	public IngredientDTO viewIngredient(String targetIngredientName);
+	public IngredientDTO updateIngredient(IngredientDTO objIngredientDTO);
 }

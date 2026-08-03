@@ -89,6 +89,49 @@ public class MenuServiceImpl implements MenuService {
 		return objUpdatedProductDTO;
 	}
 	
+	@Transactional
+	@Override
+	public ProductDTO deleteProduct(int targetProductId) {
+		Optional<Product> objTargetProduct = objMenuProductRepository.findById(targetProductId);
+		ProductDTO objDeletedProduct = new ProductDTO();
+		if(objTargetProduct.isPresent()) {
+			BeanUtils.copyProperties(objTargetProduct.get(),objDeletedProduct);
+			objMenuProductRepository.delete(objTargetProduct.get());
+		}
+		else {
+			throw new ItemNotFoundException("Product with Product Id: "+targetProductId+" not found in database!");
+		}
+		
+		return objDeletedProduct;
+	}
+	
+	@Override
+	public ProductDTO viewProduct(String targetProductName) {
+		Optional<Product> objTargetProduct = objMenuProductRepository.findByName(targetProductName);
+		ProductDTO objTargetProductDTO = new ProductDTO();
+		if(objTargetProduct.isPresent()) {
+			BeanUtils.copyProperties(objTargetProduct.get(),objTargetProductDTO);
+		}
+		else {
+			throw new ItemNotFoundException("Product with Product Name: "+targetProductName+" not found in database!");
+		}
+		
+		return objTargetProductDTO;
+	}
+	
+	@Override
+	public ProductDTO updateProduct(ProductDTO objProductDTO) {
+		Product objNewProductToSave = new Product();
+		BeanUtils.copyProperties(objProductDTO, objNewProductToSave);
+		
+		Product objUpdatedProduct = objMenuProductRepository.save(objNewProductToSave);
+		
+		
+		ProductDTO responseProductDTO = new ProductDTO();
+		BeanUtils.copyProperties(objUpdatedProduct, responseProductDTO);
+		
+		return responseProductDTO;
+	}
 	
 	
 	
@@ -96,7 +139,8 @@ public class MenuServiceImpl implements MenuService {
 	
 	
 	
-
+	
+	
 	@Override
 	public IngredientDTO addNewIngredient(IngredientDTO objNewIngredientDTO) {
 		boolean ingredientExists = objMenuIngredientRepository.existsByName(objNewIngredientDTO.getName());
@@ -158,20 +202,45 @@ public class MenuServiceImpl implements MenuService {
 
 	@Transactional
 	@Override
-	public ProductDTO deleteProduct(int targetProductId) {
-		Optional<Product> objTargetProduct = objMenuProductRepository.findById(targetProductId);
-		ProductDTO objDeletedProduct = new ProductDTO();
-		if(objTargetProduct.isPresent()) {
-			BeanUtils.copyProperties(objTargetProduct.get(),objDeletedProduct);
-			objMenuProductRepository.delete(objTargetProduct.get());
+	public IngredientDTO deleteIngredient(int targetIngredientId) {
+		Optional<Ingredient> objTargetIngredient = objMenuIngredientRepository.findById(targetIngredientId);		
+		IngredientDTO objDeletedIngredient = new IngredientDTO();
+		if(objTargetIngredient.isPresent()) {
+			BeanUtils.copyProperties(objTargetIngredient.get(),objDeletedIngredient);
+			objMenuIngredientRepository.delete(objTargetIngredient.get());
 		}
 		else {
-			throw new ItemNotFoundException("Product with Product Id: "+targetProductId+" not found in database!");
+			throw new ItemNotFoundException("Ingredient with Ingredient Id: "+targetIngredientId+" not found in database!");
 		}
 		
-		return objDeletedProduct;
+		return objDeletedIngredient;
 	}
-	
-	
+
+	@Override
+	public IngredientDTO viewIngredient(String targetIngredientName) {
+	    Optional<Ingredient> objTargetIngredient = objMenuIngredientRepository.findByName(targetIngredientName);
+	    IngredientDTO objTargetIngredientDTO = new IngredientDTO();
+	    
+	    if (objTargetIngredient.isPresent()) {
+	        BeanUtils.copyProperties(objTargetIngredient.get(), objTargetIngredientDTO);
+	    } else {
+	        throw new ItemNotFoundException("Ingredient with Ingredient Name: " + targetIngredientName + " not found in database!");
+	    }
+	    
+	    return objTargetIngredientDTO;
+	}
+
+	@Override
+	public IngredientDTO updateIngredient(IngredientDTO objIngredientDTO) {
+	    Ingredient objNewIngredientToSave = new Ingredient();
+	    BeanUtils.copyProperties(objIngredientDTO, objNewIngredientToSave);
+	    
+	    Ingredient objUpdatedIngredient = objMenuIngredientRepository.save(objNewIngredientToSave);
+	    
+	    IngredientDTO responseIngredientDTO = new IngredientDTO();
+	    BeanUtils.copyProperties(objUpdatedIngredient, responseIngredientDTO);
+	    
+	    return responseIngredientDTO;
+	}
 
 }

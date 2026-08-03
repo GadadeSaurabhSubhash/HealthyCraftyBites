@@ -2,7 +2,6 @@ package com.healthycraftybites.authenticationservice.dto;
 
 public class AdminDTO {
 	
-	private String storeId;
 	private String userName;
 	private String password;
 	private String role;
@@ -10,15 +9,6 @@ public class AdminDTO {
 
 	public AdminDTO() {
 		
-	}
-
-
-	public String getStoreId() {
-		return storeId;
-	}
-
-	public void setStoreId(String storeId) {
-		this.storeId = storeId;
 	}
 
 	public String getUserName() {

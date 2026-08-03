@@ -12,11 +12,10 @@ function AdminManagerFeatureBar(){
                     <div><Link to="/adminmanagerhome/editingredient" className="gold-link">Edit-Ingredient</Link></div>
                 </div>
                 
-                <div className="featurePanel1 px-3 py-3 d-flex justify-content-around">
+                <div className="featurePanel1 px-3 py-3 d-flex justify-content-evenly">
                     <div><Link to="/adminmanagerhome/manageproductsavailability" className="gold-link">Manage-Products-Availability</Link></div>
                     <div><Link to="/adminmanagerhome/manageingredientsavailability" className="gold-link">Manage-Ingredients-Availability</Link></div>
-                    <div><Link to="/adminmanagerhome/viewreviewdashboard" className="gold-link">View-Review-Dashboard</Link></div>
-                    <div><Link to="/adminmanagerhome/resetlogincredentials" className="gold-link">Reset-Login-Credentials</Link></div>
+                    <div><Link to="/adminmanagerhome/changeadminpassword" className="gold-link">Change-Password</Link></div>
                 </div>
             </div>
         </>

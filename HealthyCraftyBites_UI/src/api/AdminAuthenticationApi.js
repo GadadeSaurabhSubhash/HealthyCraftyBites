@@ -2,10 +2,9 @@ import axiosInstance from "./axiosInstance.js";
 
 export const loginAdmin = async (credentials) => {
   try {
-    const response = await axiosInstance.post('/authenticationservice/adminauth/authadmincredentials', credentials);
+    const response = await axiosInstance.post('/authenticationservice/adminauthentication/authenticateadmincredentials', credentials);
     return response.data; 
   } catch (error) {
-    // we'll refine this error handling shortly, for now just rethrow
     throw error;
   }
 };

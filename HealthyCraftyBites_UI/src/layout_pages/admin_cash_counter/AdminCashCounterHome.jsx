@@ -2,6 +2,7 @@ import { useState } from "react"
 import "../layout_pages_css/CashCounterHomeCSS.css";
 import NavbarCashCounterHome from "../../common_components/NavbarCashCounterHome.jsx"
 import page_logo_path from "../layout_pages_images/admin_manager_dashboard_logo.png"
+import { useNavigate } from "react-router-dom";
 
 const MOCK_ORDERS = {
   200: {
@@ -28,6 +29,7 @@ function fetchOrderByNumber(orderNumber) {
 }
 
 export default function AdminCashCounterHome() {
+	const navigate = useNavigate();
   const [orderNumberInput, setOrderNumberInput] = useState("");
   const [order, setOrder] = useState(null);
   const [paymentMode, setPaymentMode] = useState(""); // "ONLINE" or "CASH"
@@ -114,24 +116,25 @@ export default function AdminCashCounterHome() {
 		<NavbarCashCounterHome
 		  page_title="Cash Counter Dashboard"
 		  page_logo={page_logo_path}
-		  feature_component={null}
+		  buttonText="View Orders"
 		  home_route="/admincashcounterhome"
+		  button_route="admincashcounterhome/vieworders"
 		/>
 
-		<div className="container-fluid mt-3" style={{ maxWidth: 1020 }}>
+		<div className="container-fluid mt-3" style={{ maxWidth: 1200 }}>
 		  {/* Order Search */}
-		  <section className="border border-light rounded-4 px-4 py-4 mb-3 bg-opacity-90" style={{ backgroundColor: "#e4abf1" }}>
-			 <label htmlFor="orderNumber" className="form-label fw-semibold text-dark">
+		  <section className="check-order-input">
+			 <label htmlFor="orderNumber" className="check-order-label">
 				Enter Order Number
 			 </label>
 
-			 <div className="d-flex gap-2 bg-gray" >
+			 <div className="d-flex gap-2" >
 				<input
 				  id="orderNumber"
 				  type="text"
 				  inputMode="numeric"
 				  className="form-control border-light flex-grow-1"
-				  style={{ minWidth: 220 }}
+				  style={{ minWidth: 120 }}
 				  placeholder="e.g. 200"
 				  value={orderNumberInput}
 				  onChange={(e) => setOrderNumberInput(e.target.value)}
@@ -154,28 +157,28 @@ export default function AdminCashCounterHome() {
 
 		  {/* Order Details */}
 		  {order && (
-			 <section className="border border-light rounded-4 px-4 py-4 mb-3 bg-opacity-90 shadow-sm" style={{ backgroundColor: "#e4abf1" }}>
+			 <section className="mt-3 px-4 py-4 order-details-section">
 				<div className="mb-3 fs-5">
 				  Order Number:
 				  <span className="ms-2">{order.orderNumber}</span>
 				</div>
 
-				<div className="mb-3 fs-6">
+				<div className="mb-3 fs-5">
 				  Time: {order.time}
 				</div>
 
-				<div className="mb-3 fs-6">
+				<div className="mb-3 fs-5">
 				  Customer Name:
 				  <span className="ms-2">{order.customerName}</span>
 				</div>
 
-				<div className="mb-4 fs-6">
+				<div className="mb-4 fs-5">
 				  Mobile Number:
 				  <span className="ms-2">{order.mobileNumber}</span>
 				</div>
 
 			<div className="table-responsive">
-				<table className="table table-bordered align-middle mb-3 cash-counter-table" style={{ border: "2px solid #6c757d", borderRadius: "2px" }}>
+				<table className="table table-bordered align-middle mb-3 cash-counter-table">
 					 <thead>
 						<tr>
 						  <th style={{ width: 100 }}>Sr. No</th>
@@ -196,25 +199,25 @@ export default function AdminCashCounterHome() {
 						))}
 					 </tbody>
 				</table>
-			<div className="d-flex justify-content-end">
-              	<table className="table table-light table-bordered mb-0 px-0 py-0 mt-0 rounded" style={{ width: 220 }}>
-					<tbody>
-						<tr>
-							<td className="fw-semibold rounded p-1">Total</td>
-							<td className="p-1">{total}</td>
-						</tr>
-					</tbody>
-              </table>
-            </div>
+				<div className="d-flex justify-content-end">
+					<table className="table table-light table-bordered mb-0 px-0 py-0 mt-0 rounded" style={{ width: 220 }}>
+						<tbody>
+							<tr>
+								<td className="fw-semibold rounded p-1">Total</td>
+								<td className="p-1">{total}</td>
+							</tr>
+						</tbody>
+				</table>
+				</div>
 			</div>
 		</section>
 	)}
 
 		  {/* Payment */}
 		  {order && (
-			 <section className="border border-light rounded-4 px-4 py-4 mb-3 bg-opacity-90 shadow-sm d-flex flex-wrap justify-content-between align-items-center gap-3" style={{ backgroundColor: "#e4abf1" }}>
+			 <section className="px-4 py-4 mt-3 d-flex flex-wrap justify-content-between align-items-center gap-3 payment-section">
 				<div>
-				  <div className="mb-2 text-dark">
+				  <div className="mb-2">
 					 Select Payment Mode:
 				  </div>
 

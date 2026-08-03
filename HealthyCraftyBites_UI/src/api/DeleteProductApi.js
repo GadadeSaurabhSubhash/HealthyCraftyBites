@@ -1,4 +1,4 @@
-import axiosInstance from "./AxiosInstance";
+import axiosInstance from "./axiosInstance.js";
 
 export const deleteProduct = async (targetProductId) => {
   try {

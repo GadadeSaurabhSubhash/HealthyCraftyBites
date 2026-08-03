@@ -7,20 +7,132 @@
     min-height: 100vh;
 }
 
-.cash-counter-table {
-    background-color: #c66cda;
-    color: #faf6f6;
-    border: 2px solid #c66cda;
+.check-order-input {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    background-color: rgba(82, 0, 110, 0.65);
+    border-radius: 20px;
+    filter: drop-shadow(3px 3px 3px black);
+    padding: 16px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
 }
 
-.cash-counter-table th,
-.cash-counter-table td {
-    background-color: #c66cda;
-    border-width: 2px;
-    border-color: #eaebec;
+.check-order-label {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 15.5px;
+    color: white;
+    text-shadow: 1px 2px 4px #000000;
+    padding-bottom: 4px;
+}
+
+.check-order-input .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1 1 auto; /* allow the right-side group to take remaining space */
+    padding-bottom: 15px;
+}
+
+.check-order-input .form-control {
+    min-width: 0; /* allow input to shrink inside flex container */
+    flex: 1 1 auto;
+}
+
+@media (max-width: 576px) {
+    .check-order-input {
+        padding: 10px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .check-order-input label.check-order-label {
+        width: 100%;
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+    .check-order-input .d-flex {
+        width: 100%;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .check-order-input .d-flex > * {
+        width: 100%;
+    }
+
+    .check-order-input .d-flex button {
+        width: 100%;
+    }
+}
+
+/* Slightly reduce label font to match other admin forms */
+.check-order-label {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 2px 4px #000000;
+}
+
+.order-details-section {
+    background-color: rgba(82, 0, 110, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    filter: drop-shadow(3px 3px 3px black);
+    color: white;
+    font-family: 'Urbanist', sans-serif;
+    padding: 24px 28px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+input[type="text"],
+input[type="file"],
+select.form-select,
+textarea.form-control{
+    color: #290133; 
+    background-color:#f1b8ff; 
+    filter: drop-shadow(1px 1px 2px black);
+}
+
+table {
+    border-collapse: collapse;
 }
 
 .cash-counter-table thead th {
     border: 1px solid #020304;
-    background-color: #c66cda;
+    background-color: #f1b8ff;
+    color: #290133;
+}
+
+.cash-counter-table {
+    border-collapse: collapse;
+}
+
+.cash-counter-table th,
+.cash-counter-table td {
+    background-color: #f1b8ff;
+    border-top: 1px solid #000 !important;
+    border-bottom: 1px solid #000 !important;
+    border-left: 1px solid #000 !important;
+    border-right: 1px solid #000 !important;
+}
+
+
+.payment-section {
+    background-color: rgba(82, 0, 110, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    filter: drop-shadow(3px 3px 3px black);
+    color: white;
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 28px;
 }

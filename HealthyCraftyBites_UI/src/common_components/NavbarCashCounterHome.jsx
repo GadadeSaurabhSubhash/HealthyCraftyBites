@@ -1,9 +1,10 @@
 import "../common_components/css_files/NavbarAdminHomeCSS.css"
 import logoutButton from "../common_components/images/logout_button.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function NavbarCashCounterHome({page_title,page_logo,feature_component,home_route}){
-    let component_name = feature_component;
+function NavbarCashCounterHome({page_title,page_logo,buttonText,home_route,button_route}){
+    let button_name = buttonText;
+    const navigate = useNavigate();
     return(
         <>
             <div className="Navbar py-0">
@@ -19,10 +20,10 @@ function NavbarCashCounterHome({page_title,page_logo,feature_component,home_rout
                         </div>
                     </Link>
                     <div className="ms-auto me-3">
-                        <button className="btn btn-outline-light" id="view-orders-btn" onClick={() => {
-                            // Handle view orders logic
+                        <button className="btn btn-primary" id="view-orders-btn" onClick={() => {
+                            navigate(`/${button_route}`);
                         }}>
-                            View Orders
+                            {button_name}
                         </button>
                     </div>
                     <div>
@@ -30,9 +31,9 @@ function NavbarCashCounterHome({page_title,page_logo,feature_component,home_rout
                     </div>
                 </div>
 
-                <div className="lowerPart px-4 py-1 ">
+                {/* <div className="lowerPart px-4 py-1 ">
                     {feature_component}
-                </div>
+                </div> */}
             
             </div>
         </>

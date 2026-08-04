@@ -10,8 +10,20 @@ import com.healthycraftybites.authenticationservice.dto.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+	@ExceptionHandler(AccessDeniedException.class)
+	public ResponseEntity<ApiResponse<Void>> handleAccessDenied(AccessDeniedException ex) {
+	    return ResponseEntity.status(HttpStatus.FORBIDDEN)
+	            .body(ApiResponse.failure(ex.getMessage()));
+	}
+	
 	@ExceptionHandler(InvalidCredentialsException.class)
 	public ResponseEntity<ApiResponse<Object>> handleInvalidCredentials(InvalidCredentialsException ex){
+		ApiResponse<Object> response = ApiResponse.failure(ex.getMessage());
+		return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
+	}
+	
+	@ExceptionHandler(InvalidRefreshTokenException.class)
+	public ResponseEntity<ApiResponse<Object>> handleInvalidRefreshToken(InvalidRefreshTokenException ex){
 		ApiResponse<Object> response = ApiResponse.failure(ex.getMessage());
 		return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
 	}

@@ -36,8 +36,7 @@ public class SecurityConfig {
 
 			// authorization rules
 			.authorizeHttpRequests(auth -> auth
-				.requestMatchers("/**").permitAll() // adjust based on your actual auth model
-				.anyRequest().authenticated()
+				.anyRequest().permitAll()
 			);
 
 		return http.build();

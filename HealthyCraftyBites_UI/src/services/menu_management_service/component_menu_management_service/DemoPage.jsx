@@ -1,10 +1,10 @@
 import "../css_menu_management_service/DemopageCSS.css";
-import AdvanceOrderOption from "./AdvanceOrderOption";
+import PaymentGateway from "./PaymentGateway";
 
 function DemoPage() {
   return (
     <div className="demo-page">
-      <AdvanceOrderOption />
+      <PaymentGateway />
     </div>
   );
 }

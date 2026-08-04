@@ -1,14 +1,21 @@
-import { loginAdmin } from "../../../api/AdminAuthenticationApi";
+import { loginAdmin } from "../../../api/AdminLoginApi";
 import HCBLogoImg from "../authentication_service_images/healthy_crafty_bites_logo.png"
 import "../css_authentication_service/AdminLoginFormCSS.css" 
 import { useState } from "react";
+import { useAuth } from "../../../context/AdminAuthContext";
+import { useNavigate } from "react-router-dom";
 
 function AdminLoginForm() {
+
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
     const [userNameError, setUserNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
+    const [loginError, setLoginError] = useState("");
 
     // Username Validation
     function validateUserName() {
@@ -75,9 +82,20 @@ function AdminLoginForm() {
         
         try {
             const response = await loginAdmin(credentials);
-            console.log(response); // temporary, just to see what backend returns
+            login(response.data.accessToken, response.data.role);
+            if(response.data.role==="MANAGER"){
+                navigate("/adminmanagerhome");
+            }
+            else if (response.data.role==="CASHIER")
+            {
+                navigate("/admincashcounterhome");
+            }
         } catch (error) {
-            console.log(error); // temporary, we'll handle this properly next
+            if (error.response && error.response.status === 500) {
+                   setLoginError("Invalid username or password.");
+            } else {
+                   setLoginError("Something went wrong. Please try again.");
+            }
         }
 
     }
@@ -132,6 +150,7 @@ function AdminLoginForm() {
                     LOGIN
                 </button>
             </div>
+            <div className="errorDisplayArea mb-3 py-2 text-center" id="errorDisplayForPassword">{loginError}</div>
         </form>
     );
 }

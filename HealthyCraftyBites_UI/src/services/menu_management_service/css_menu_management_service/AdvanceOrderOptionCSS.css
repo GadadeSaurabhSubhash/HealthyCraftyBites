@@ -1,0 +1,298 @@
+.advance-order-container{
+
+    max-width:1000px;
+
+    margin:50px auto;
+
+    padding:20px;
+
+    font-family:"Urbanist";
+
+}
+
+
+/*==================================
+Heading
+==================================*/
+
+.advance-order-title{
+
+    text-align:center;
+
+    font-size:42px;
+
+    color:#013007;
+
+    font-family:"Gilroy-Bold", sans-serif;
+
+    margin-bottom:40px;
+
+}
+
+
+/*==================================
+Card
+==================================*/
+
+.advance-order-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E8E8E8;
+
+    border-radius:16px;
+
+    padding:35px;
+
+}
+
+
+/*==================================
+Form Layout
+==================================*/
+
+.advance-form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    margin-bottom:28px;
+
+}
+
+.advance-form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.advance-form-group label{
+
+    margin-bottom:10px;
+
+    color:#013007;
+
+    font-size:17px;
+
+    font-family:"Gilroy-Bold", sans-serif;
+
+}
+
+
+/*==================================
+Inputs
+==================================*/
+
+.advance-order-card input[type="text"],
+.advance-order-card input[type="tel"],
+.advance-order-card input[type="number"]{
+
+    width:100%;
+
+    height:50px;
+
+    padding:0 16px;
+
+    background:#FFFFFF;
+
+    color:#013007;
+
+    border:1px solid #D8D8D8;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.10);
+
+    box-sizing:border-box;
+
+}
+
+.advance-order-card input:focus{
+
+    border-color:#013007;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+}
+
+.advance-order-card input:disabled{
+
+    background:#F5F5F5;
+
+    color:#999;
+
+    cursor:not-allowed;
+
+}
+
+
+/*==================================
+Order Type
+==================================*/
+
+.order-type-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    margin-top:12px;
+
+}
+
+.order-type-option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:18px;
+
+    color:#013007;
+
+    font-family:"Gilroy-Bold", sans-serif;
+
+    cursor:pointer;
+
+}
+
+.order-type-option input{
+
+    accent-color:#013007;
+
+    width:18px;
+
+    height:18px;
+
+    margin:0;
+
+}
+
+
+/*==================================
+Divider
+==================================*/
+
+.advance-order-card hr{
+
+    margin:30px 0;
+
+    border:none;
+
+    border-top:1px solid #E5E5E5;
+
+}
+
+
+/*==================================
+Buttons
+==================================*/
+
+.advance-order-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+.advance-back-btn,
+.advance-proceed-btn{
+
+    flex:1;
+
+    height:54px;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-family:"Gilroy-Bold", sans-serif;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.advance-back-btn{
+
+    background:#FFFFFF;
+
+    color:#013007;
+
+    border:2px solid #013007;
+
+}
+
+.advance-back-btn:hover{
+
+    background:#013007;
+
+    color:#FFFFFF;
+
+}
+
+.advance-proceed-btn{
+
+    background:#013007;
+
+    color:#FFFFFF;
+
+    border:none;
+
+}
+
+.advance-proceed-btn:hover{
+
+    background:#02530C;
+
+}
+
+
+/*==================================
+Responsive
+==================================*/
+
+@media(max-width:768px){
+
+    .advance-form-row{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .advance-order-actions{
+
+        flex-direction:column;
+
+    }
+
+}

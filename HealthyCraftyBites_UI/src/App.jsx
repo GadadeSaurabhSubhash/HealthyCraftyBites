@@ -4,6 +4,8 @@ import { AuthProvider, useAuth } from "../src/context/AdminAuthContext";
 import ProtectedRoute from "./context/ProtectedRoute";
 import { refreshToken } from "./api/RefreshAccessTokenApi";
 import Home from "./layout_pages/home_page/Home";
+import DemoPage from "./services/menu_management_service/component_menu_management_service/DemoPage";
+import UserRegistration from "./services/authentication_service/pages_authentication_service/UserRegistration";
 import AdminManagerHome from "./layout_pages/admin_manager/AdminManagerHome";
 import AdminLogin from "./services/authentication_service/pages_authentication_service/AdminLogin";
 import AddProductForm from "./services/menu_management_service/component_menu_management_service/AddProductForm";
@@ -40,6 +42,20 @@ function AppRoutes() {
   }, []);
 
   return (
+    <>
+      <Routes>
+            <Route path="/userregistration" element={<UserRegistration />} />
+            <Route path="/demopage" element={<DemoPage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/adminlogin" element={<AdminLogin />} />
+               <Route path="/adminmanagerhome" element={<AdminManagerHome />}>
+                  <Route path="addproduct" element={<AddProductForm />} />
+                  <Route path="addingredient" element={<AddIngredientForm />} />
+                  <Route path="manageproductsavailability" element={<ManageProductAvailability />} />
+               </Route>
+        </Routes>
+    </>
+  )
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/adminlogin" element={<AdminLogin />} />

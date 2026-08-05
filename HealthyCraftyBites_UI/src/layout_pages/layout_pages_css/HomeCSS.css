@@ -15,7 +15,15 @@
 }
 
 /* navbar */
+.user-dropdown-container{
 
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+}
 
 .home-navbar{
     background-color: #013007;

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import UserDropdownMenu from "../../services/user_service/component_user_service/UserDropdownMenu";
 import adminImage from "../layout_pages_images/admin_login_image_icon.png";
 import aboutImage from "../layout_pages_images/about_us_image.png";
 import saladImage from "../layout_pages_images/salad.png";
@@ -9,6 +11,7 @@ import "../layout_pages_css/HomeCSS.css";
 import logo from "../../services/authentication_service/authentication_service_images/healthy_crafty_bites_logo.png";
 import colabImage from "../../common_components/images/salad_roll_sandwhich_img_home_page.png";
 function Home() {
+  const [showUserMenu, setShowUserMenu] = useState(false);
   return (
     <>
       <div className="home-page">
@@ -26,8 +29,22 @@ function Home() {
               </div>
             </div>
 
-            <div>
-              <i className="bi bi-person-circle user-icon"></i>
+            <div className="user-dropdown-container">
+              <i
+                className="bi bi-person-circle user-icon"
+                onClick={() => setShowUserMenu(!showUserMenu)}
+              ></i>
+
+              {showUserMenu && (
+                <UserDropdownMenu
+                  userName="Guest User"
+                  email="guest@healthycraftybites.com"
+                  onProfile={() => console.log("Profile")}
+                  onOrders={() => console.log("Orders")}
+                  onFavourites={() => console.log("Favourites")}
+                  onLogout={() => console.log("Logout")}
+                />
+              )}
             </div>
           </div>
         </nav>

@@ -1,0 +1,21 @@
+.ViewMenu{
+
+    min-height:100vh;
+
+    background-image: url("../../../layout_pages/layout_pages_images/home_bg.png");
+
+    background-repeat:no-repeat;
+
+    background-position:center;
+
+    background-size:cover;
+
+}
+
+.ErrorMessage{
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: white;
+    font-size: 30px;
+    text-shadow: 1px 2px 4px #000000;
+    font-style: italic;
+}

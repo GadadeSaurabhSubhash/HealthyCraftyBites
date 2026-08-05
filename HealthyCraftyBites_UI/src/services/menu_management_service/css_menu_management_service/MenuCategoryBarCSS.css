@@ -1,0 +1,15 @@
+.menuCategoryBar {
+    display: flex;
+    gap: 10px;
+    color: #013007;
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.active {
+    color: #008022;
+    font-weight: bold;
+    text-shadow: 1px 2px 2px white;
+}

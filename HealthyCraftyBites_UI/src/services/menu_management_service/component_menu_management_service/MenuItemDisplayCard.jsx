@@ -1,27 +1,29 @@
 import { useState } from "react";
 import "../css_menu_management_service/MenuItemDisplayCardCSS.css";
-import saladImage from "../images_menu_management_service/salad.png";
 
-function MenuItemDisplayCard() {
-  const [quantity, setQuantity] = useState(1);
+function MenuItemDisplayCard({ currentProduct }) {
+  const [quantity, setQuantity] = useState(0);
 
   return (
     <div className="menu-card">
       <div className="menu-top">
         <div className="menu-left">
-          <img src={saladImage} alt="Greek Salad" className="menu-image" />
+          <img
+            src={`/${currentProduct.imgName}`}
+            alt={currentProduct.name}
+            className="menu-image"
+          />
         </div>
 
         <div className="menu-content">
           <div className="menu-header">
-            <h2>Greek Salad</h2>
+            <h2>{currentProduct.name}</h2>
 
-            <i className="bi bi-record-circle menu-veg-icon"></i>
+            <i className="heart bi bi-heart menu-favourite-icon"></i>
           </div>
 
           <p className="menu-description">
-            Fresh vegetables, lettuce, cucumber, tomato, olives, feta cheese and
-            healthy dressing.
+            {currentProduct.description}
           </p>
 
           <div className="menu-divider"></div>
@@ -34,8 +36,7 @@ function MenuItemDisplayCard() {
 
               <div>
                 <span className="menu-nutrition-name">Calories</span>
-
-                <strong>250 kcal</strong>
+                <strong>{currentProduct.calories} kcal</strong>
               </div>
             </div>
 
@@ -44,8 +45,7 @@ function MenuItemDisplayCard() {
 
               <div>
                 <span className="menu-nutrition-name">Protein</span>
-
-                <strong>12 g</strong>
+                <strong>{currentProduct.protein} g</strong>
               </div>
             </div>
 
@@ -54,8 +54,7 @@ function MenuItemDisplayCard() {
 
               <div>
                 <span className="menu-nutrition-name">Carbs</span>
-
-                <strong>30 g</strong>
+                <strong>{currentProduct.carbohydrates} g</strong>
               </div>
             </div>
 
@@ -64,8 +63,7 @@ function MenuItemDisplayCard() {
 
               <div>
                 <span className="menu-nutrition-name">Fat</span>
-
-                <strong>10 g</strong>
+                <strong>{currentProduct.fat} g</strong>
               </div>
             </div>
 
@@ -74,8 +72,7 @@ function MenuItemDisplayCard() {
 
               <div>
                 <span className="menu-nutrition-name">Fiber</span>
-
-                <strong>5 g</strong>
+                <strong>{currentProduct.fiber} g</strong>
               </div>
             </div>
           </div>
@@ -85,7 +82,7 @@ function MenuItemDisplayCard() {
       <div className="menu-divider"></div>
 
       <div className="menu-footer">
-        <h3 className="menu-price">₹299</h3>
+        <h3 className="menu-price">₹{currentProduct.price}</h3>
 
         <div className="menu-actions">
           <div className="menu-quantity-box">
@@ -95,7 +92,9 @@ function MenuItemDisplayCard() {
 
             <span>{quantity}</span>
 
-            <button onClick={() => setQuantity(quantity + 1)}>+</button>
+            <button onClick={() => setQuantity(quantity + 1)}>
+              +
+            </button>
           </div>
 
           <button className="menu-cart-btn">

@@ -17,6 +17,8 @@ import EditIngredient from "./services/menu_management_service/component_menu_ma
 import ChangeAdminPassword from "./services/authentication_service/component_authentication_service/ChangeAdminPassword";
 import AdminCashCounterHome from "./layout_pages/admin_cash_counter/AdminCashCounterHome";
 import WelcomeAdmin from "../src/services/authentication_service/pages_authentication_service/WelcomeAdmin"
+import ViewMenu from "./services/menu_management_service/pages_menu_management_service/ViewMenu";
+
 
 function App() {
   return (
@@ -41,24 +43,12 @@ function AppRoutes() {
     tryRestoreSession();
   }, []);
 
-  return (
-    <>
-      <Routes>
-            <Route path="/userregistration" element={<UserRegistration />} />
-            <Route path="/demopage" element={<DemoPage />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/adminlogin" element={<AdminLogin />} />
-               <Route path="/adminmanagerhome" element={<AdminManagerHome />}>
-                  <Route path="addproduct" element={<AddProductForm />} />
-                  <Route path="addingredient" element={<AddIngredientForm />} />
-                  <Route path="manageproductsavailability" element={<ManageProductAvailability />} />
-               </Route>
-        </Routes>
-    </>
-  )
+  return(
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/userregistration" element={<UserRegistration />} />
       <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route path="/viewmenu" element={<ViewMenu />} />
 
       <Route path="/adminmanagerhome" element={<ProtectedRoute />}>
         <Route element={<AdminManagerHome />}>

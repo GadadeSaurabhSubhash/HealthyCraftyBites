@@ -7,6 +7,7 @@ import UserRegistrationForm from "../component_authentication_service/UserRegist
 import registrationBackground from "../authentication_service_images/user_registration_bg.png";
 
 import HomeButton from "../../../common_components/HomeButtonUserRegistration";
+import Navbar from "../../../layout_pages/layout_pages_components/Navbar";
 
 function UserRegistration() {
 
@@ -21,23 +22,19 @@ function UserRegistration() {
     return (
 
         <div
-            className="user-registration-page"
+            className="user-registration-page d-flex row "
             style={{
                 backgroundImage: `url(${registrationBackground})`
             }}
         >
 
-            <div className="user-registration-top">
+            <div className="user-registration-top px-3 py-2">
 
-                <HomeButton
-                    width="5rem"
-                    height="5rem"
-                    onClick={handleHomeButtonClick}
-                />
+                <Navbar />
 
             </div>
 
-            <div className="user-registration-bottom">
+            <div className="user-registration-bottom py-5">
 
                 <UserRegistrationForm />
 

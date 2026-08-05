@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import adminImage from "../layout_pages_images/admin_login_image_icon.png";
 import aboutImage from "../layout_pages_images/about_us_image.png";
 import saladImage from "../layout_pages_images/salad.png";
@@ -8,29 +8,20 @@ import beverageImage from "../layout_pages_images/beverage.png";
 import "../layout_pages_css/HomeCSS.css";
 import logo from "../../services/authentication_service/authentication_service_images/healthy_crafty_bites_logo.png";
 import colabImage from "../../common_components/images/salad_roll_sandwhich_img_home_page.png";
+import Navbar from "../layout_pages_components/Navbar";
+import UserLoginForm from "../../services/authentication_service/component_authentication_service/UserLoginForm";
+
+
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="home-page">
-        <nav className="navbar navbar-expand-lg home-navbar">
-          <div className="container-fluid">
-            <div className="d-flex align-items-center">
-              <img
-                src={logo}
-                alt="HealthyCraftyBites Logo"
-                className="logo me-3"
-              />
-              <div>
-                <h2 className="website-name">HealthyCraftyBites</h2>
-                <p className="website-slogan">Eat Healthy, Live Happy</p>
-              </div>
-            </div>
 
-            <div>
-              <i className="bi bi-person-circle user-icon"></i>
-            </div>
-          </div>
-        </nav>
+        <div className="p-2">
+          <Navbar className="border-rounded" />
+        </div>
+        
 
         {/* Hero Section starts here */}
         <section className="hero-section">
@@ -59,40 +50,9 @@ function Home() {
               </div>
 
               <div className="col-lg-4 d-flex justify-content-center">
-                <div className="login-card">
-                  <h2 className="login-title">Welcome Back </h2>
-
-                  <p className="login-subtitle">
-                    Sign in to continue your healthy journey.
-                  </p>
-
-                  <form>
-                    <div>
-                      <label className="email-input-label">Enter Email</label>
-                    </div>
-                    <input type="email" />
-
-                    <div>
-                      <label className="password-input-label">
-                        Enter Password
-                      </label>
-                    </div>
-                    <input type="password" />
-
-                    <button type="submit" className="login-btn">
-                      Sign In
-                    </button>
-
-                    <p className="signup-text">
-                      Didn't register?{" "}
-                      <a href="/signup" className="signup-link">
-                        Sign Up
-                      </a>
-                    </p>
-                  </form>
-                </div>
+                  <UserLoginForm />
               </div>
-            </div>
+          </div>
 
             {/* Second Row (Later) */}
             {/* Features */}
@@ -109,7 +69,7 @@ function Home() {
                 </div>
                 <div className="row g-4 justify-content-center">
                   <div className="col-lg-3 col-md-6 d-flex justify-content-center">
-                    <div className="food-card">
+                    <div className="food-card" onClick={() => navigate("/viewmenu")}>
                       {/* here add onclick for explore menu inside food-card div*/}
                       <img src={saladImage} alt="Salads" />
 
@@ -125,7 +85,7 @@ function Home() {
                   </div>
 
                   <div className="col-lg-3 col-md-6 d-flex justify-content-center">
-                    <div className="food-card">
+                    <div className="food-card" onClick={() => navigate("/viewmenu")}>
                       <img src={rollImage} alt="Rolls" />
 
                       <div className="food-card-body">
@@ -140,7 +100,7 @@ function Home() {
                   </div>
 
                   <div className="col-lg-3 col-md-6 d-flex justify-content-center">
-                    <div className="food-card">
+                    <div className="food-card" onClick={() => navigate("/viewmenu")}>
                       <img src={sandwichImage} alt="Sandwiches" />
 
                       <div className="food-card-body">
@@ -155,7 +115,7 @@ function Home() {
                   </div>
 
                   <div className="col-lg-3 col-md-6 d-flex justify-content-center">
-                    <div className="food-card">
+                    <div className="food-card" onClick={() => navigate("/viewmenu")}>
                       <img src={beverageImage} alt="Beverages" />
 
                       <div className="food-card-body">
@@ -271,15 +231,18 @@ function Home() {
             <div className="footer-content">
               {/* Google Maps */}
 
-              <a
-                href="https://maps.app.goo.gl/bg9rmFLrCzJuJpdZ9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-map"
-              >
-                <i className="bi bi-geo-alt-fill"></i>
-                <span>Find Us</span>
-              </a>
+              <div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3783.2788475574603!2d73.8387290749628!3d18.51629698257642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDMwJzU4LjciTiA3M8KwNTAnMjguNyJF!5e0!3m2!1sen!2sin!4v1785973245232!5m2!1sen!2sin"
+                    width="200"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+            
 
               {/* Copyright */}
 

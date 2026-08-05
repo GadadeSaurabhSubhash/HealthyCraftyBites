@@ -1,3 +1,8 @@
+.heart:hover{
+    transform: scale(1.6);
+    filter: drop-shadow(3px 3px 3px red);
+}
+
 .menu-card{
 
     max-width:900px;

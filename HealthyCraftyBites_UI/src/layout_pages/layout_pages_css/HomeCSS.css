@@ -30,14 +30,14 @@
 }
 
 .logo{
-    width: 65px;
-    height: 65px;
+    width: 85px;
+    height: 85px;
     object-fit: contain;
 }
 
 .website-name{
     font-family: "Gilroy-Bold", sans-serif;
-    font-size: 2rem;
+    font-size: 2.3rem;
     color: #F7E8A4;
     margin: 0;
     line-height: 1.1;
@@ -45,7 +45,7 @@
 
 .website-slogan{
     font-family: "Urbanist", sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #FFFFFF;
     margin: 0;
     letter-spacing: 0.5px;
@@ -80,6 +80,7 @@
 /* login form */
 
 .login-card{
+    font-family: "Gilroy-Bold", sans-serif;
     background-color: #FFFFFF;
     padding: 30px;
     border-radius: 16px;
@@ -89,15 +90,19 @@
     width: 100%;
 }
 .login-card form{
+    font-family: "Gilroy-Bold", sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 .login-subtitle{
-    color: #555;
+    font-family: "Urbanist", sans-serif;
+    color: black;
     line-height: 1.5;
+    font-style: italic;
 }
 .login-card input{
+    font-family: "Urbanist", sans-serif;
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -113,26 +118,24 @@
     font-family: "Urbanist", sans-serif;
     font-size: 15px;
     font-weight: 500;
-    color: #444444;
+    color: black;
 }
 
-.login-btn{
+.login-btn-1{
     width: 100%;
     margin-top: 10px;
     padding: 12px;
     border: none;
     border-radius: 10px;
-    background-color: #013007;
+    background-color: #013007 !important;
     color: #FFFFFF;
     font-family: "Gilroy-Bold", sans-serif;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
-
-
-.login-btn:hover{
-    background-color: #02450B;
+.login-btn-1:hover{
+    color: #013007  !important;
+    background-color: #FFFFFF !important;
+    border: 3px solid #013007 !important;
 }
 
 .signup-text{

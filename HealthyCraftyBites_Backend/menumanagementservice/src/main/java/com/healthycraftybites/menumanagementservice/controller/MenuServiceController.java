@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -62,6 +63,26 @@ public class MenuServiceController {
 		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
 	
+	@GetMapping("/getproduct")
+	public ResponseEntity<ApiResponse<ProductDTO>> getProduct(@RequestParam(name = "targetProductName") String targetProductName) {
+		ProductDTO objTargetProduct = objMenuService.viewProduct(targetProductName);
+		
+		ApiResponse<ProductDTO> response = ApiResponse.success("Product fetched successfully", objTargetProduct);
+		
+		return new ResponseEntity<>(response,HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateproduct")
+	public ResponseEntity<ApiResponse<ProductDTO>> updateProduct(@RequestBody ProductDTO objProductDTO) {
+		ProductDTO updatedProduct = objMenuService.updateProduct(objProductDTO);
+		
+		ApiResponse<ProductDTO> response = ApiResponse.success("Product updated successfully", updatedProduct);
+		
+		return new ResponseEntity<>(response,HttpStatus.CREATED);
+	}
+	
+	
+	
 	
 	
 	
@@ -92,4 +113,32 @@ public class MenuServiceController {
 		
 		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/deleteingredient")
+	public ResponseEntity<ApiResponse<IngredientDTO>> deleteIngredient(@RequestParam(name = "targetIngredientId") int targetIngredientId) {
+		IngredientDTO objDeletedIngredient = objMenuService.deleteIngredient(targetIngredientId);
+		
+		ApiResponse<IngredientDTO> response = ApiResponse.success("Ingredient Deleted successfully", objDeletedIngredient);
+		
+		return new ResponseEntity<>(response,HttpStatus.OK);
+	}
+	
+	@GetMapping("/getingredient")
+	public ResponseEntity<ApiResponse<IngredientDTO>> getIngredient(@RequestParam(name = "targetIngredientName") String targetIngredientName) {
+	    IngredientDTO objTargetIngredient = objMenuService.viewIngredient(targetIngredientName);
+	    
+	    ApiResponse<IngredientDTO> response = ApiResponse.success("Ingredient fetched successfully", objTargetIngredient);
+	    
+	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@PutMapping("/updateingredient")
+	public ResponseEntity<ApiResponse<IngredientDTO>> updateIngredient(@RequestBody IngredientDTO objIngredientDTO) {
+	    IngredientDTO updatedIngredient = objMenuService.updateIngredient(objIngredientDTO);
+	    
+	    ApiResponse<IngredientDTO> response = ApiResponse.success("Ingredient updated successfully", updatedIngredient);
+	    
+	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
 }

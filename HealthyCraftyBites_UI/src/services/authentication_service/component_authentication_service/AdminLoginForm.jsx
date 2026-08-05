@@ -1,37 +1,21 @@
-import { loginAdmin } from "../../../api/AdminAuthenticationApi";
+import { loginAdmin } from "../../../api/AdminLoginApi";
 import HCBLogoImg from "../authentication_service_images/healthy_crafty_bites_logo.png"
 import "../css_authentication_service/AdminLoginFormCSS.css" 
 import { useState } from "react";
+import { useAuth } from "../../../context/AdminAuthContext";
+import { useNavigate } from "react-router-dom";
 
 function AdminLoginForm() {
-    const [storeId, setStoreId] = useState("");
+
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
-    const [storeIdError, setStoreIdError] = useState("");
     const [userNameError, setUserNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
-
-    // Store ID Validation
-    function validateStoreId() {
-
-        let trimmedStoreId = storeId.trim();
-
-        if (trimmedStoreId === "") {
-            setStoreIdError("Store ID is required.");
-            return false;
-        }
-
-        if (!/^\d+$/.test(trimmedStoreId)) {
-            setStoreIdError("Store ID must contain only numeric values.");
-            return false;
-        }
-
-        // Clear error
-        setStoreIdError("");
-        return true;
-    }
+    const [loginError, setLoginError] = useState("");
 
     // Username Validation
     function validateUserName() {
@@ -86,23 +70,32 @@ function AdminLoginForm() {
     // Validate All Fields
     async function validateCredentials() {
 
-        let isStoreIdValid = validateStoreId();
         let isUserNameValid = validateUserName();
         let isPasswordValid = validatePassword();
 
-        if (isStoreIdValid && isUserNameValid && isPasswordValid) {
+        if (isUserNameValid && isPasswordValid) {
 
             let credentials = {
-            storeId:storeId,
             userName:userName,
             password:password
         }
         
         try {
             const response = await loginAdmin(credentials);
-            console.log(response); // temporary, just to see what backend returns
+            login(response.data.accessToken, response.data.role);
+            if(response.data.role==="MANAGER"){
+                navigate("/adminmanagerhome");
+            }
+            else if (response.data.role==="CASHIER")
+            {
+                navigate("/admincashcounterhome");
+            }
         } catch (error) {
-            console.log(error); // temporary, we'll handle this properly next
+            if (error.response && error.response.status === 500) {
+                   setLoginError("Invalid username or password.");
+            } else {
+                   setLoginError("Something went wrong. Please try again.");
+            }
         }
 
     }
@@ -118,22 +111,6 @@ function AdminLoginForm() {
             <div className="formHeading mb-3">
                 <h1>Admin-Manager Login</h1>
             </div>
-
-            <div className="mb-3">
-                <label htmlFor="storeId" className="form-label fw-bold">
-                Enter Store ID
-                </label>
-                <input
-                type="text"
-                className="form-control"
-                id="storeId"
-                name="storeId"
-                value={storeId}
-                onChange={(e) => setStoreId(e.target.value)}
-                onBlur={validateStoreId}
-                />
-            </div>
-            <div className="errorDisplayArea mb-3" id="errorDisplayForStoreId">{storeIdError}</div>
 
             <div className="mb-3">
                 <label htmlFor="userName" className="form-label fw-bold">
@@ -173,6 +150,7 @@ function AdminLoginForm() {
                     LOGIN
                 </button>
             </div>
+            <div className="errorDisplayArea mb-3 py-2 text-center" id="errorDisplayForPassword">{loginError}</div>
         </form>
     );
 }

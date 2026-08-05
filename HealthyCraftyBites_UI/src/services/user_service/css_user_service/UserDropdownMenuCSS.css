@@ -1,0 +1,224 @@
+.user-dropdown-menu{
+
+    position:absolute;
+
+    top:calc(100% + 12px);
+
+    right:0;
+
+    width:230px;
+
+    background:#FFFFFF;
+
+    border-radius:16px;
+
+    border:2px solid #D8E3D3;      
+
+    overflow:hidden;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.18);
+
+    z-index:9999;
+
+}
+
+/*======================================
+    Header
+======================================*/
+
+.user-dropdown-header{
+
+    background:#013007;
+
+    color:white;
+
+    padding:14px 16px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+/*======================================
+    Avatar
+======================================*/
+
+.user-avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#013007;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:26px;
+
+    flex-shrink:0;
+
+}
+
+/*======================================
+    User Details
+======================================*/
+
+.user-details h5{
+
+    margin:0;
+
+    font-family:'Gilroy-Bold',sans-serif;
+
+    font-size:16px;
+
+}
+
+.user-details p{
+
+    margin-top:2px;
+
+    margin-bottom:0;
+
+    font-size:12px;
+
+    color:#d9f8dc;
+
+}
+
+/*======================================
+    Buttons
+======================================*/
+
+.user-dropdown-menu button{
+
+    width:100%;
+
+    border:none;
+
+    background:white;
+
+    padding:13px 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    cursor:pointer;
+
+    font-family:'Urbanist',sans-serif;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.user-dropdown-menu button:hover{
+
+    background:#eefaf0;
+
+    color:#013007;
+
+}
+
+.user-dropdown-menu button i{
+
+    font-size:17px;
+
+    width:20px;
+
+}
+
+/*======================================
+    Logout
+======================================*/
+
+.logout-button{
+
+    border-top:1px solid #e8e8e8 !important;
+
+    color:#d62828;
+
+}
+
+.logout-button:hover{
+
+    background:#ffeaea !important;
+
+}
+.user-dropdown-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:15px 18px;
+
+    color:#222;
+
+    transition:.25s;
+
+    border-bottom:1px solid #ECECEC;
+
+}
+
+.user-dropdown-item:last-child{
+
+    border-bottom:none;
+
+}
+.user-dropdown-item:hover{
+
+    background:#F6F9F5;
+    transform:translateX(4px);
+
+}
+.logout-item{
+
+    color:#E53935;
+
+    font-weight:600;
+
+}
+.logout-button{
+
+    border-top:1px solid #ececec;
+
+    border-radius:0 0 16px 16px;
+
+}
+
+/*======================================
+    Animation
+======================================*/
+
+@keyframes dropdownAnimation{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

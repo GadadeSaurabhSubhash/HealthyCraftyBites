@@ -10,6 +10,12 @@ import com.healthycraftybites.authenticationservice.dto.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+	@ExceptionHandler(DuplicateItemException.class)
+	public ResponseEntity<ApiResponse<Object>> handleDuplicateItem(DuplicateItemException ex){
+		ApiResponse<Object> response = ApiResponse.failure(ex.getMessage());
+		return new ResponseEntity<>(response,HttpStatus.CONFLICT);
+	}
+	
 	@ExceptionHandler(AccessDeniedException.class)
 	public ResponseEntity<ApiResponse<Void>> handleAccessDenied(AccessDeniedException ex) {
 	    return ResponseEntity.status(HttpStatus.FORBIDDEN)

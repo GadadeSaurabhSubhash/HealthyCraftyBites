@@ -3,8 +3,10 @@ package com.healthycraftybites.authenticationservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@EnableFeignClients(basePackages = "com.healthycraftybites.authenticationservice.feign")
 @SpringBootApplication(scanBasePackages = {"com.healthycraftybites.authenticationservice.service","com.healthycraftybites.authenticationservice.controller","com.healthycraftybites.authenticationservice.config,com.healthycraftybites.authenticationservice.util"})
 @EntityScan(basePackages = "com.healthycraftybites.authenticationservice.entity")
 @EnableJpaRepositories(basePackages="com.healthycraftybites.authenticationservice.repository" )

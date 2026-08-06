@@ -29,7 +29,11 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     private static final List<String> PUBLIC_ENDPOINTS = List.of(
         "/authenticationservice/adminauthentication/authenticateadmincredentials",
         "/authenticationservice/adminauthentication/refreshtoken",
-        "/authenticationservice/adminauthentication/logout"
+        "/authenticationservice/adminauthentication/logout",
+        "/authenticationservice/userauthentication/checkifemailexists",
+        "/authenticationservice/userauthentication/verifyotp",
+        "/authenticationservice/userauthentication/userregistration",
+        "/menumanagementservice/menuservice/viewallproducts" 
     );
 
     public JwtAuthenticationFilter() throws Exception {

@@ -25,6 +25,12 @@ function ViewMenu() {
                 let response = await viewAllProducts();
                 setProductData(response.data);
 
+                const AvailableProducts = response.data.filter(
+                (product) => product.availabilityStatus === 1
+                );
+
+                setProductData(AvailableProducts);
+
                 const saladProducts = response.data.filter(
                 (product) => product.category === "Salads"
                 );

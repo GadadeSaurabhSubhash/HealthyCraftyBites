@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Java Interview Preparation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #1f2933;
+      line-height: 1.6;
+      margin: 40px auto;
+      max-width: 980px;
+      padding: 0 28px;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      color: #0f172a;
+      page-break-after: avoid;
+    }
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-top: 30px;
+      border-bottom: 1px solid #dfe6ea;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-top: 18px;
+    }
+    p, li {
+      font-size: 15px;
+    }
+    ul, ol {
+      padding-left: 24px;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 12px 14px;
+      overflow-x: auto;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .small-note {
+      font-style: italic;
+      color: #475569;
+      margin-top: 12px;
+    }
+    @page {
+      size: A4;
+      margin: 25mm 20mm 25mm 20mm;
+    }
+  </style>
+</head>
+<body>
+  <h1>Core Java Interview Preparation for Freshers to Intermediate</h1>
+
+  <h2>1. Scope and Interview Focus</h2>
+  <p>This preparation is focused on Core Java only. The goal is to build strong interview readiness for fresher-to-intermediate Java roles without spending time on low-value or advanced enterprise topics that are not typically expected in Java core interviews.</p>
+  <p>Primary areas:</p>
+  <ul>
+    <li>JVM, JDK, JRE, and Java memory model</li>
+    <li>Core Java fundamentals</li>
+    <li>Object-oriented programming</li>
+    <li>Collections framework</li>
+    <li>Exception handling</li>
+    <li>Multithreading and concurrency</li>
+    <li>Java 8+ features</li>
+  </ul>
+  <p>This guide emphasizes practical understanding, common interview questions, and the reasoning behind code behavior.</p>
+
+  <h2>2. JVM, JDK, JRE, and Memory Management</h2>
+  <h3>2.1 JVM vs JDK vs JRE</h3>
+  <ul>
+    <li><strong>JRE</strong>: Java Runtime Environment — contains JVM and runtime libraries required to run Java programs.</li>
+    <li><strong>JDK</strong>: Java Development Kit — contains JRE + compiler + tools like javac and debugger.</li>
+    <li><strong>JVM</strong>: Java Virtual Machine — loads and executes Java bytecode and provides platform independence.</li>
+  </ul>
+  <p><strong>Common interview answer:</strong> Java source code is compiled into bytecode. The JVM executes this bytecode on different platforms, which is why Java is platform-independent.</p>
+
+  <h3>2.2 Java memory areas</h3>
+  <ul>
+    <li><strong>Heap</strong>: objects are created here.</li>
+    <li><strong>Stack</strong>: method calls, local variables, reference variables.</li>
+    <li><strong>Method Area / Metaspace</strong>: class metadata, static variables, method code.</li>
+    <li><strong>PC Register</strong>: tracks the current instruction of a thread.</li>
+    <li><strong>Native Method Stack</strong>: for native method execution.</li>
+  </ul>
+
+  <h3>2.3 Heap vs Stack</h3>
+  <ul>
+    <li>Stack is used for method execution and local variables.</li>
+    <li>Heap stores objects.</li>
+    <li>Primitive values usually live on stack.</li>
+    <li>Objects live on heap and are referenced from stack variables.</li>
+  </ul>
+
+  <h3>2.4 Garbage Collection</h3>
+  <ul>
+    <li>Java manages memory automatically through GC.</li>
+    <li>Objects become eligible for GC when no live references remain.</li>
+    <li>GC is not deterministic; it runs when needed.</li>
+    <li><code>System.gc()</code> is only a request, not a guarantee.</li>
+  </ul>
+
+  <h3>2.5 Young Generation and Old Generation</h3>
+  <p>In HotSpot JVM:</p>
+  <ul>
+    <li><strong>Young Generation</strong>: Eden + Survivor spaces</li>
+    <li><strong>Old Generation</strong>: long-lived objects move here</li>
+  </ul>
+  <p>Minor GC cleans young generation; major GC touches old generation.</p>
+
+  <h3>2.6 Common questions</h3>
+  <ul>
+    <li>What is the difference between JDK and JRE?</li>
+    <li>What is the role of the JVM?</li>
+    <li>Why is Java platform independent?</li>
+    <li>What is garbage collection?</li>
+    <li>What is the difference between stack and heap memory?</li>
+    <li>What is memory leak in Java?</li>
+  </ul>
+
+  <h2>3. Core Java Fundamentals</h2>
+  <h3>3.1 Data types</h3>
+  <p>Primitive types:</p>
+  <ul>
+    <li>byte, short, int, long, float, double, char, boolean</li>
+  </ul>
+  <p>Reference types:</p>
+  <ul>
+    <li>String, arrays, classes, interfaces, enums</li>
+  </ul>
+
+  <h3>3.2 Variables</h3>
+  <ul>
+    <li>Local variables: declared inside methods</li>
+    <li>Instance variables: declared in a class, per object</li>
+    <li>Static variables: belong to class, shared across all instances</li>
+  </ul>
+
+  <h3>3.3 Static, final, this, super</h3>
+  <ul>
+    <li><code>static</code>: class-level member</li>
+    <li><code>final</code>: cannot be changed or overridden</li>
+    <li><code>this</code>: current object reference</li>
+    <li><code>super</code>: parent class reference</li>
+  </ul>
+
+  <h3>3.4 Constructors</h3>
+  <ul>
+    <li>Same name as class</li>
+    <li>No return type</li>
+    <li>Used to initialize objects</li>
+    <li>Constructor overloading is possible</li>
+  </ul>
+
+  <h3>3.5 Method overloading vs overriding</h3>
+  <p><strong>Overloading:</strong> same method name, different parameter list; compile-time polymorphism.</p>
+  <p><strong>Overriding:</strong> same method signature in subclass; runtime polymorphism.</p>
+
+  <h3>3.6 Pass by value in Java</h3>
+  <p>Java is pass by value.</p>
+  <ul>
+    <li>Primitive values are copied</li>
+    <li>Object references are also copied by value</li>
+    <li>The original object is not copied</li>
+  </ul>
+
+  <h3>3.7 String, StringBuilder, StringBuffer</h3>
+  <ul>
+    <li><code>String</code>: immutable</li>
+    <li><code>StringBuilder</code>: mutable, not thread-safe, faster</li>
+    <li><code>StringBuffer</code>: mutable, thread-safe, synchronized</li>
+  </ul>
+
+  <h3>3.8 Why String is immutable</h3>
+  <ul>
+    <li>memory safety</li>
+    <li>thread safety</li>
+    <li>string pool optimization</li>
+    <li>hashCode stability for collections</li>
+  </ul>
+
+  <h3>3.9 Common questions</h3>
+  <ul>
+    <li>What is the difference between <code>==</code> and <code>.equals()</code>?</li>
+    <li>What is method overloading?</li>
+    <li>What is method overriding?</li>
+    <li>What is a constructor?</li>
+    <li>Why is Java pass by value?</li>
+    <li>Why is String immutable?</li>
+    <li>What is <code>final</code> keyword used for?</li>
+  </ul>
+
+  <h2>4. Object-Oriented Programming (OOP)</h2>
+  <h3>4.1 OOP principles</h3>
+  <ul>
+    <li>Encapsulation: hide implementation, expose behavior</li>
+    <li>Inheritance: reusability and specialization</li>
+    <li>Polymorphism: same action, different behavior</li>
+    <li>Abstraction: expose essentials, hide complexity</li>
+  </ul>
+
+  <h3>4.2 Encapsulation</h3>
+  <p>Encapsulation groups data and methods together and restricts direct access using access modifiers.</p>
+
+  <h3>4.3 Inheritance</h3>
+  <p>A subclass inherits from a superclass.</p>
+  <ul>
+    <li>promotes code reuse</li>
+    <li>supports polymorphism</li>
+    <li>single inheritance for classes in Java</li>
+  </ul>
+
+  <h3>4.4 Polymorphism</h3>
+  <ul>
+    <li>method overloading: compile-time polymorphism</li>
+    <li>method overriding: runtime polymorphism</li>
+  </ul>
+
+  <h3>4.5 Abstract class vs Interface</h3>
+  <p><strong>Abstract class:</strong> can have concrete methods and abstract methods; can have constructor; used when classes share common behavior.</p>
+  <p><strong>Interface:</strong> contract for classes; can have default methods and static methods from Java 8 onwards; a class can implement multiple interfaces.</p>
+
+  <h3>4.6 Access modifiers</h3>
+  <ul>
+    <li><code>public</code>: accessible everywhere</li>
+    <li><code>protected</code>: same package or subclasses</li>
+    <li>default (package-private): same package only</li>
+    <li><code>private</code>: same class only</li>
+  </ul>
+
+  <h3>4.7 <code>instanceof</code></h3>
+  <p>Used to check whether an object is an instance of a given class or interface.</p>
+
+  <h3>4.8 Common questions</h3>
+  <ul>
+    <li>What is encapsulation?</li>
+    <li>What is inheritance?</li>
+    <li>What is polymorphism?</li>
+    <li>Difference between abstract class and interface?</li>
+    <li>Why use interfaces?</li>
+    <li>Can a class extend multiple classes?</li>
+    <li>Can a class implement multiple interfaces?</li>
+  </ul>
+
+  <h2>5. Collections Framework</h2>
+  <h3>5.1 Collection hierarchy</h3>
+  <p>Core interfaces:</p>
+  <ul>
+    <li>List</li>
+    <li>Set</li>
+    <li>Map</li>
+    <li>Queue</li>
+  </ul>
+
+  <h3>5.2 List implementations</h3>
+  <ul>
+    <li><code>ArrayList</code>: dynamic array, fast random access, good for read-heavy operations</li>
+    <li><code>LinkedList</code>: doubly-linked list, good for frequent insertions/deletions</li>
+    <li><code>Vector</code>: synchronized legacy class</li>
+    <li><code>Stack</code>: LIFO legacy class</li>
+  </ul>
+
+  <h3>5.3 Set implementations</h3>
+  <ul>
+    <li><code>HashSet</code>: no duplicates, no order guarantee</li>
+    <li><code>LinkedHashSet</code>: insertion order</li>
+    <li><code>TreeSet</code>: sorted order</li>
+  </ul>
+
+  <h3>5.4 Map implementations</h3>
+  <ul>
+    <li><code>HashMap</code>: key-value pairs, no order guarantee, allows one null key</li>
+    <li><code>LinkedHashMap</code>: preserves insertion order</li>
+    <li><code>TreeMap</code>: sorted by keys</li>
+    <li><code>Hashtable</code>: synchronized legacy class, no null keys/values</li>
+  </ul>
+
+  <h3>5.5 Important differences</h3>
+  <ul>
+    <li>List allows duplicates; Set does not</li>
+    <li>Map stores key-value pairs</li>
+    <li>ArrayList uses index-based retrieval; LinkedList is better at insert/delete in middle</li>
+    <li>HashSet uses hashing; TreeSet uses sorting</li>
+  </ul>
+
+  <h3>5.6 Comparable vs Comparator</h3>
+  <p><strong>Comparable:</strong> natural ordering defined inside the class.</p>
+  <p><strong>Comparator:</strong> custom sorting defined externally.</p>
+
+  <h3>5.7 HashMap internals (important follow-up)</h3>
+  <p>HashMap uses:</p>
+  <ul>
+    <li>bucket array</li>
+    <li><code>hashCode()</code> and <code>equals()</code></li>
+    <li>collision handling</li>
+    <li>resizing when capacity grows</li>
+  </ul>
+  <p>The key contract:</p>
+  <ul>
+    <li>if two objects are equal, their hashCode must be equal</li>
+    <li>override <code>equals()</code> only when <code>hashCode()</code> is also overridden</li>
+  </ul>
+
+  <h3>5.8 Fail-fast behavior</h3>
+  <p>Iterators of many collection classes fail fast if the collection is modified structurally during iteration, except through the iterator itself.</p>
+
+  <h3>5.9 Common questions</h3>
+  <ul>
+    <li>Difference between ArrayList and LinkedList?</li>
+    <li>Difference between HashMap and HashSet?</li>
+    <li>Difference between HashMap and Hashtable?</li>
+    <li>What is the difference between List, Set, and Map?</li>
+    <li>What is Comparable vs Comparator?</li>
+    <li>Can HashMap have duplicate keys?</li>
+    <li>Why override hashCode and equals together?</li>
+    <li>What is fail-fast?</li>
+  </ul>
+
+  <h2>6. Exception Handling</h2>
+  <h3>6.1 Exception hierarchy</h3>
+  <p><code>Throwable</code></p>
+  <ul>
+    <li><code>Error</code></li>
+    <li><code>Exception</code></li>
+  </ul>
+  <p><code>Exception</code></p>
+  <ul>
+    <li>checked exceptions</li>
+    <li>unchecked exceptions (<code>RuntimeException</code> and subclasses)</li>
+  </ul>
+
+  <h3>6.2 Checked vs Unchecked exceptions</h3>
+  <p><strong>Checked exceptions:</strong> must be handled or declared using <code>throws</code>; examples: <code>IOException</code>, <code>SQLException</code>.</p>
+  <p><strong>Unchecked exceptions:</strong> do not need explicit handling; examples: <code>NullPointerException</code>, <code>ArithmeticException</code>.</p>
+
+  <h3>6.3 try, catch, finally, throw, throws</h3>
+  <ul>
+    <li><code>try</code>: code that may throw an exception</li>
+    <li><code>catch</code>: handles the exception</li>
+    <li><code>finally</code>: executes regardless of success/failure</li>
+    <li><code>throw</code>: explicitly throws an exception</li>
+    <li><code>throws</code>: declares possible exceptions</li>
+  </ul>
+
+  <h3>6.4 Try-with-resources</h3>
+  <p>Used to auto-close resources like streams and database connections.</p>
+
+  <h3>6.5 finally block behavior</h3>
+  <p><code>finally</code> usually executes even if exception occurs. It is used for cleanup.</p>
+
+  <h3>6.6 Common questions</h3>
+  <ul>
+    <li>What is the difference between checked and unchecked exceptions?</li>
+    <li>What is the purpose of <code>finally</code>?</li>
+    <li>Difference between <code>throw</code> and <code>throws</code>?</li>
+    <li>What is try-with-resources?</li>
+    <li>Can a <code>finally</code> block throw an exception?</li>
+    <li>Why are custom exceptions used?</li>
+  </ul>
+
+  <h2>7. Multithreading and Concurrency</h2>
+  <h3>7.1 What is a thread?</h3>
+  <p>A thread is an independent path of execution inside a program.</p>
+
+  <h3>7.2 Ways to create threads</h3>
+  <ul>
+    <li>Extend <code>Thread</code></li>
+    <li>Implement <code>Runnable</code></li>
+    <li>Use <code>Callable</code> and <code>ExecutorService</code></li>
+  </ul>
+
+  <h3>7.3 Thread lifecycle</h3>
+  <ul>
+    <li>New</li>
+    <li>Runnable</li>
+    <li>Waiting / Blocked / Timed Waiting</li>
+    <li>Terminated</li>
+  </ul>
+
+  <h3>7.4 Synchronization</h3>
+  <p>Used to prevent multiple threads from accessing shared resources simultaneously.</p>
+
+  <h3>7.5 <code>wait()</code>, <code>notify()</code>, <code>notifyAll()</code></h3>
+  <p>Used for thread coordination.</p>
+  <ul>
+    <li><code>wait()</code>: releases lock and waits</li>
+    <li><code>notify()</code>: wakes one waiting thread</li>
+    <li><code>notifyAll()</code>: wakes all waiting threads</li>
+  </ul>
+
+  <h3>7.6 <code>sleep()</code> vs <code>wait()</code></h3>
+  <ul>
+    <li><code>sleep()</code> does not release the lock</li>
+    <li><code>wait()</code> releases the lock and waits until notified</li>
+  </ul>
+
+  <h3>7.7 <code>volatile</code></h3>
+  <p>Used to ensure visibility of changes across threads.</p>
+
+  <h3>7.8 Deadlock, race condition, starvation</h3>
+  <ul>
+    <li><strong>Race condition</strong>: inconsistent result due to concurrent access</li>
+    <li><strong>Deadlock</strong>: two or more threads waiting on each other</li>
+    <li><strong>Starvation</strong>: a thread never gets CPU time or resources</li>
+  </ul>
+
+  <h3>7.9 Common questions</h3>
+  <ul>
+    <li>Difference between <code>Thread</code> and <code>Runnable</code>?</li>
+    <li>What is synchronization?</li>
+    <li>What is deadlock?</li>
+    <li>What is volatile?</li>
+    <li>What is race condition?</li>
+    <li>Difference between <code>wait()</code> and <code>sleep()</code>?</li>
+    <li>Why use ExecutorService?</li>
+  </ul>
+
+  <h2>8. Java 8+ Features</h2>
+  <h3>8.1 Lambda expressions</h3>
+  <p>Lambda is a concise way to implement functional interfaces.</p>
+  <pre>list.forEach(item -> System.out.println(item));</pre>
+
+  <h3>8.2 Functional interface</h3>
+  <p>An interface with exactly one abstract method. Examples: <code>Runnable</code>, <code>Callable</code>, <code>Comparator</code>, <code>Predicate</code>, <code>Function</code>, <code>Consumer</code>.</p>
+
+  <h3>8.3 Stream API</h3>
+  <p>Used to process collections in a functional style.</p>
+  <ul>
+    <li><code>filter()</code></li>
+    <li><code>map()</code></li>
+    <li><code>sorted()</code></li>
+    <li><code>reduce()</code></li>
+    <li><code>collect()</code></li>
+  </ul>
+
+  <h3>8.4 Optional</h3>
+  <p>Represents a value that may or may not be present. Helps avoid null-related errors.</p>
+
+  <h3>8.5 Default methods in interfaces</h3>
+  <p>Introduced in Java 8 to extend interfaces without breaking implementations.</p>
+
+  <h3>8.6 Method references</h3>
+  <p>Shorter syntax for lambda expressions.</p>
+  <pre>System.out::println</pre>
+
+  <h3>8.7 Date and Time API</h3>
+  <p>The <code>java.time</code> package provides modern date and time classes like:</p>
+  <ul>
+    <li><code>LocalDate</code></li>
+    <li><code>LocalTime</code></li>
+    <li><code>LocalDateTime</code></li>
+    <li><code>DateTimeFormatter</code></li>
+  </ul>
+
+  <h3>8.8 Common questions</h3>
+  <ul>
+    <li>What is a lambda expression?</li>
+    <li>What is a functional interface?</li>
+    <li>What is Stream API?</li>
+    <li>Difference between <code>filter()</code> and <code>map()</code>?</li>
+    <li>What is Optional?</li>
+    <li>Why are default methods useful?</li>
+    <li>What is the benefit of <code>java.time</code> API?</li>
+  </ul>
+
+  <h2>9. Frequently Asked Core Java Interview Questions</h2>
+  <ol>
+    <li>What is the difference between JDK, JRE, and JVM?</li>
+    <li>Why is Java platform independent?</li>
+    <li>What is the difference between <code>String</code>, <code>StringBuilder</code>, and <code>StringBuffer</code>?</li>
+    <li>What is the difference between <code>==</code> and <code>.equals()</code>?</li>
+    <li>What is method overloading and overriding?</li>
+    <li>What is a constructor?</li>
+    <li>What is the difference between an abstract class and an interface?</li>
+    <li>What is the difference between ArrayList and LinkedList?</li>
+    <li>What is the difference between HashMap and Hashtable?</li>
+    <li>What is the difference between HashSet and TreeSet?</li>
+    <li>What is the difference between checked and unchecked exceptions?</li>
+    <li>What is the purpose of <code>finally</code>?</li>
+    <li>What is the difference between <code>throw</code> and <code>throws</code>?</li>
+    <li>What is multithreading?</li>
+    <li>What is synchronization?</li>
+    <li>What is the difference between <code>wait()</code> and <code>sleep()</code>?</li>
+    <li>What is deadlock?</li>
+    <li>What is a lambda expression?</li>
+    <li>What is a functional interface?</li>
+    <li>What is the Stream API?</li>
+    <li>What is Optional?</li>
+    <li>What is the purpose of garbage collection?</li>
+    <li>What is heap memory vs stack memory?</li>
+    <li>Why is String immutable?</li>
+    <li>Why do we override <code>hashCode()</code> and <code>equals()</code> together?</li>
+  </ol>
+
+  <h2>10. How to answer interview questions well</h2>
+  <p>Strong answers are not just definitions; they show reasoning.</p>
+  <p><strong>Good answer pattern:</strong></p>
+  <ol>
+    <li>define the concept</li>
+    <li>explain the practical use case</li>
+    <li>mention trade-offs or edge cases</li>
+    <li>give a small example</li>
+  </ol>
+  <p>Example:</p>
+  <ul>
+    <li>Instead of: “HashMap stores key-value pairs.”</li>
+    <li>Better: “HashMap stores data in buckets based on the hash code of the key. It provides average O(1) lookup, but ordering is not guaranteed. If you need sorted keys, use TreeMap.”</li>
+  </ul>
+  <p>This type of answer shows actual understanding.</p>
+
+  <h2>11. Final Revision Checklist</h2>
+  <p>Before the interview, be comfortable with:</p>
+  <ul>
+    <li>JVM, JDK, JRE</li>
+    <li>heap vs stack</li>
+    <li>garbage collection</li>
+    <li>primitives vs references</li>
+    <li>String immutability</li>
+    <li>method overloading and overriding</li>
+    <li>abstract class vs interface</li>
+    <li>List, Set, Map differences</li>
+    <li>ArrayList vs LinkedList</li>
+    <li>HashMap basics</li>
+    <li>checked vs unchecked exceptions</li>
+    <li>try-catch-finally</li>
+    <li>thread basics</li>
+    <li>synchronized, wait, notify</li>
+    <li>lambda, stream, Optional</li>
+  </ul>
+
+  <h2>12. Final Advice</h2>
+  <p>For fresher and early-intermediate Java interviews, the key is not to memorize dry definitions. The key is to explain why a concept exists, when it is used, what pitfall it avoids, and how it behaves in real code.</p>
+  <p>The strongest candidates are those who can reason about code and explain trade-offs clearly.</p>
+  <p>This preparation is sufficient for most fresher-level to intermediate-level Core Java interviews.</p>
+</body>
+</html>

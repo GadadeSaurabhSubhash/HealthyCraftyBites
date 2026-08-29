@@ -1,0 +1,392 @@
+/* ==========================================================================
+   Global Layout & Utility Rules
+   ========================================================================== */
+
+:root {
+  --primary-gold: #f59e0b;
+  --primary-gold-dark: #d97706;
+  --gold-shadow: rgba(245, 158, 11, 0.35);
+  --bg-light: #f9fafb;
+  --card-border: #e5e7eb;
+  --text-dark: #1f2937;
+  --text-muted: #6b7280;
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.customizer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .customizer-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   1. Live Nutrition Tracker (Sticky Left Sidebar)
+   ========================================================================== */
+
+.tracker-sidebar {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .tracker-sidebar {
+    width: 340px;
+    position: sticky;
+    top: 2rem;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+}
+
+.tracker-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+/* Macro Summary Grid */
+.macro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.macro-box {
+  padding: 0.75rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.macro-box.calories {
+  grid-column: span 2;
+  background-color: #047857;
+  border: 1px solid #fde68a;
+  text-align: center;
+}
+
+.macro-box.protein { background-color: #eff6ff; border: 1px solid #bfdbfe; }
+.macro-box.carbs { background-color: #ecfdf5; border: 1px solid #a7f3d0; }
+.macro-box.fat { background-color: #fef2f2; border: 1px solid #fecaca; }
+.macro-box.fiber { background-color: #fffbeb; border: 1px solid #fde68a; }
+
+.macro-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.macro-box.calories .macro-label { color: #b45309; }
+.macro-box.protein .macro-label { color: #1d4ed8; }
+.macro-box.carbs .macro-label { color: #047857; }
+.macro-box.fat .macro-label { color: #b91c1c; }
+.macro-box.fiber .macro-label { color: #b45309; }
+
+.macro-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0.25rem 0 0 0;
+}
+
+.macro-box.calories .macro-value {
+  font-size: 1.75rem;
+  color: #78350f;
+}
+
+.chart-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.chart-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.chart-wrapper {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.save-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2);
+}
+
+.save-btn:hover {
+  background-color: #047857;
+}
+
+.save-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   2. Ingredient Selector Container & Category Sections
+   ========================================================================== */
+
+.selector-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.selector-section {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.type-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.type-btn {
+  padding: 0.875rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid var(--card-border);
+  background-color: #f9fafb;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.type-btn.active {
+  background-color: var(--primary-gold);
+  color: #ffffff;
+  border-color: var(--primary-gold-dark);
+  box-shadow: 0 4px 12px var(--gold-shadow);
+  transform: translateY(-1px);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.limit-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  background-color: #f3f4f6;
+  color: var(--text-muted);
+}
+
+.limit-badge.maxed {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* ==========================================================================
+   3. Ingredient Card Component (Hover & Gold Selection State)
+   ========================================================================== */
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .ingredients-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 800px) {
+  .ingredients-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.ingredient-card {
+  position: relative;
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* GOLD Highlight State when Selected */
+.ingredient-card.selected {
+  border-color: var(--primary-gold);
+  background-color: #fffbeb;
+  box-shadow: 0 0 0 3px var(--gold-shadow), 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.image-container {
+  position: relative;
+  height: 110px;
+  width: 100%;
+  background-color: #f3f4f6;
+  overflow: hidden;
+}
+
+.ingredient-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ingredient-card:hover .ingredient-img {
+  transform: scale(1.08);
+}
+
+/* Selected Quantity Badge */
+.quantity-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--primary-gold);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-details {
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.ingredient-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.ingredient-calories {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Hover Nutrition overlay */
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.92);
+  color: #ffffff;
+  padding: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  pointer-events: none; /* Allows hover trigger, enabled on button inside */
+}
+
+.ingredient-card:hover .hover-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-title {
+  font-weight: 700;
+  color: #fcd34d;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.macro-list p {
+  margin: 0.2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.ctrl-btn {
+  flex: 1;
+  font-weight: 800;
+  padding: 0.25rem 0;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.ctrl-btn.remove { background-color: #ef4444; }
+.ctrl-btn.add { background-color: var(--primary-gold); }
+
+.ctrl-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

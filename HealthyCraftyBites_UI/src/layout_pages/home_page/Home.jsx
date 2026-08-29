@@ -147,8 +147,7 @@ function Home() {
                     </div>
                   </div>
 
-                  <button className="build-btn">
-                    {/* here should be onclick function to redirect to build your own ingredient inside build-btn div*/}
+                  <button className="build-btn" onClick={() => navigate("/customiseproduct")}>
                     BUILD NOW
                     <i className="bi bi-arrow-right ms-2"></i>
                   </button>

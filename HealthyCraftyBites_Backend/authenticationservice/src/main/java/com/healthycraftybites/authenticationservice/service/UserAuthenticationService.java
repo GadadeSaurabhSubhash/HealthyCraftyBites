@@ -1,6 +1,8 @@
 package com.healthycraftybites.authenticationservice.service;
 
 import com.healthycraftybites.authenticationservice.dto.EmailVerificationOtpDTO;
+import com.healthycraftybites.authenticationservice.dto.LoginResponseDTO;
+import com.healthycraftybites.authenticationservice.dto.LoginResult;
 import com.healthycraftybites.authenticationservice.dto.UserDTO;
 
 public interface UserAuthenticationService {
@@ -11,4 +13,9 @@ public interface UserAuthenticationService {
 
 	boolean verifyOtp(EmailVerificationOtpDTO objEmailVerificationOtpDTO);
 
+	LoginResult authenticateUser(UserDTO objUserDTO);
+
+	LoginResponseDTO refreshAccessToken(String refreshTokenStr);
+
+	void logoutUser(String refreshTokenStr);
 }

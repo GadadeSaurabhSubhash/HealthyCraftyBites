@@ -9,4 +9,8 @@ import com.healthycraftybites.authenticationservice.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 	boolean existsByEmailId(String emailid);
 	boolean existsByMobileNumber(String mobilenumber);
+	java.util.Optional<User> findByEmailId(String emailid);
+	java.util.Optional<User> findByEmailIdIgnoreCase(String emailid);
+	java.util.Optional<User> findByFullNameIgnoreCase(String fullName);
+	java.util.Optional<User> findByMobileNumber(String mobilenumber);
 }

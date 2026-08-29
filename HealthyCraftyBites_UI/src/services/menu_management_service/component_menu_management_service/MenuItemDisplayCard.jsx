@@ -1,17 +1,38 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css_menu_management_service/MenuItemDisplayCardCSS.css";
 
 function MenuItemDisplayCard({ currentProduct }) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    const existingCart = JSON.parse(localStorage.getItem('hcb_cart') || '[]');
+    existingCart.push({
+      cartItemId: Date.now() + Math.random(),
+      productId: currentProduct.productId,
+      productName: currentProduct.name,
+      isCustomised: false,
+      price: currentProduct.price,
+      quantity: quantity
+    });
+    localStorage.setItem('hcb_cart', JSON.stringify(existingCart));
+    alert(`${currentProduct.name} added to your Cart!`);
+    window.dispatchEvent(new Event('storage'));
+  };
 
   return (
     <div className="menu-card">
       <div className="menu-top">
         <div className="menu-left">
           <img
-            src={`/${currentProduct.imgName}`}
+            src={`/${currentProduct.imgName || 'healthy_crafty_bites_logo.png'}`}
             alt={currentProduct.name}
             className="menu-image"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = '/healthy_crafty_bites_logo.png';
+            }}
           />
         </div>
 
@@ -97,7 +118,7 @@ function MenuItemDisplayCard({ currentProduct }) {
             </button>
           </div>
 
-          <button className="menu-cart-btn">
+          <button className="menu-cart-btn" onClick={handleAddToCart}>
             <i className="bi bi-cart3 me-2"></i>
             Add to Cart
           </button>

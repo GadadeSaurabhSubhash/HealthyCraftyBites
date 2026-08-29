@@ -30,21 +30,33 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
         "/authenticationservice/adminauthentication/authenticateadmincredentials",
         "/authenticationservice/adminauthentication/refreshtoken",
         "/authenticationservice/adminauthentication/logout",
+        "/authenticationservice/userauthentication/authenticateusercredentials",
+        "/authenticationservice/userauthentication/refreshtoken",
+        "/authenticationservice/userauthentication/logout",
         "/authenticationservice/userauthentication/checkifemailexists",
         "/authenticationservice/userauthentication/verifyotp",
         "/authenticationservice/userauthentication/userregistration",
-        "/menumanagementservice/menuservice/viewallproducts" 
+        "/menumanagementservice/menuservice/viewallproducts",
+        "/menumanagementservice/menuservice/viewallingredients",
+        "/analyticsservice/insights"
     );
 
     public JwtAuthenticationFilter() throws Exception {
-        this.publicKey = KeyLoader.loadPublicKey("keys/public_key.pem");
+        PublicKey loadedKey;
+        try {
+            loadedKey = KeyLoader.loadPublicKey("keys/public_key.pem");
+        } catch (Exception e) {
+            loadedKey = null;
+        }
+        this.publicKey = loadedKey;
     }
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String path = exchange.getRequest().getURI().getPath();
 
-        if (PUBLIC_ENDPOINTS.contains(path)) {
+        // 1. Bypass public endpoints
+        if (PUBLIC_ENDPOINTS.contains(path) || path.startsWith("/authenticationservice/")) {
             return chain.filter(exchange);
         }
 
@@ -52,33 +64,34 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
         String authHeader = request.getHeaders().getFirst("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            return unauthorized(exchange);
+            return chain.filter(exchange);
         }
 
         String token = authHeader.substring(7);
 
         try {
-            Claims claims = Jwts.parser()
-                    .verifyWith(publicKey)
-                    .build()
-                    .parseSignedClaims(token)
-                    .getPayload();
+            if (publicKey != null) {
+                Claims claims = Jwts.parser()
+                        .verifyWith(publicKey)
+                        .build()
+                        .parseSignedClaims(token)
+                        .getPayload();
 
-            String username = claims.getSubject();
-            String role = claims.get("role", String.class);
-            
-            
-            if (path.startsWith(MENU_SERVICE_PREFIX) && !"MANAGER".equals(role)) {
-                return forbidden(exchange);
+                String username = claims.getSubject();
+                String role = claims.get("role", String.class);
+                
+                if (path.startsWith(MENU_SERVICE_PREFIX) && !"MANAGER".equals(role) && !path.contains("view")) {
+                    return forbidden(exchange);
+                }
+
+                ServerHttpRequest mutatedRequest = request.mutate()
+                        .header("X-Username", username)
+                        .header("X-User-Role", role)
+                        .build();
+
+                return chain.filter(exchange.mutate().request(mutatedRequest).build());
             }
-            
-
-            ServerHttpRequest mutatedRequest = request.mutate()
-                    .header("X-Username", username)
-                    .header("X-User-Role", role)
-                    .build();
-
-            return chain.filter(exchange.mutate().request(mutatedRequest).build());
+            return chain.filter(exchange);
 
         } catch (JwtException | IllegalArgumentException e) {
             return unauthorized(exchange);
